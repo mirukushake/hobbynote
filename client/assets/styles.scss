@@ -1,0 +1,118 @@
+@import "primeflex/primeflex.css";
+@import "primevue/resources/themes/lara-light-blue/theme.css";
+@import "primevue/resources/primevue.css";
+@import "primeicons/primeicons.css";
+
+$transitionDuration: 0.2s;
+
+html {
+  height: 100%;
+  font-size: 14px;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.layout-nav {
+  position: fixed;
+  height: 5rem;
+  z-index: 900;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0 2rem;
+  background-color: var(--surface-0);
+  border-bottom: 1px solid var(--gray-300);
+  transition: left $transitionDuration;
+  display: flex;
+  align-items: center;
+}
+
+.layout-sidebar {
+  position: fixed;
+  width: 300px;
+  left: 0;
+  top: 5rem;
+  height: calc(100vh - 5rem);
+  z-index: 45;
+  background-color: var(--gray-100);
+  border-right: 1px solid var(--gray-300);
+}
+
+.layout-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding: 7rem 2rem 2rem 4rem;
+  transition: margin-left $transitionDuration;
+  margin-left: 300px;
+}
+
+.layout-main {
+  flex: 1 1 auto;
+}
+
+/* -- sidebar menu -- */
+
+.layout-sidebar {
+  .p-menu {
+    background-color: var(--gray-100);
+    width: auto;
+    border: 0;
+    margin: 1rem;
+  }
+
+  .p-menu > .p-menu-list > .p-menuitem > .p-menuitem-content {
+    border-radius: 12px;
+    background-color: transparent;
+  }
+
+  .p-menu > .p-menu-list .p-submenu-header {
+    background-color: transparent;
+  }
+}
+
+.p-sidebar-left .p-sidebar {
+  width: 15rem !important;
+  height: 100%;
+}
+
+.mobile-sidebar {
+  .p-menu {
+    background-color: transparent;
+    width: auto;
+    border: 0;
+    margin: 1rem;
+  }
+}
+
+.layout-menu-button {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .layout-sidebar {
+    transform: translateX(-100%);
+    left: 0;
+    top: 0;
+    height: 100vh;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .layout-content {
+    margin-left: 0;
+  }
+
+  .layout-menu-button {
+    display: inline;
+  }
+}
