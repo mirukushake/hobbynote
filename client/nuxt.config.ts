@@ -5,4 +5,5 @@ export default defineNuxtConfig({
     transpile: ["primevue"],
   },
   ssr: false,
+  modules: ["@pinia/nuxt"],
 })
