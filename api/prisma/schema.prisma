@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model brands {
+  id         Int       @id @default(dbgenerated("unique_random_id(8, 'brands'::text, 'id'::text)"))
+  country_id Int
+  brand_name Json
+  countries  countries @relation(fields: [country_id], references: [id], onDelete: Cascade, map: "brands_country_fkey")
+  pencils    pencils[]
+}
+
+model colors {
+  id         Int   @id @default(dbgenerated("unique_random_id(4, 'colors'::text, 'id'::text)"))
+  color      Json?
+  color_name Json?
+}
+
+model combos {
+  id           Int       @id @default(dbgenerated("unique_random_id(10, 'combos'::text, 'id'::text)"))
+  title        String
+  image        String?
+  description  String?
+  date_created DateTime  @default(now()) @db.Timestamp(6)
+  date_updated DateTime? @db.Timestamp(6)
+}
+
+model countries {
+  id           Int      @id @default(autoincrement())
+  code         String?  @db.VarChar(2)
+  country_name Json?
+  brands       brands[]
+}
+
+model item_categories {
+  id                    Int               @id @default(dbgenerated("unique_random_id(5, 'item_categories'::text, 'id'::text)"))
+  category_name         Json              @default("{\"en\": \"\"}")
+  parent_id             Int?
+  order                 Int?
+  item_categories       item_categories?  @relation("item_categoriesToitem_categories_parent_id", fields: [parent_id], references: [id], onDelete: Cascade)
+  other_item_categories item_categories[] @relation("item_categoriesToitem_categories_parent_id")
+
+  @@unique([parent_id, order], map: "item_categories_parent_id_order_idx")
+}
+
+model items {
+  id          Int @id @default(dbgenerated("unique_random_id(10, 'items'::text, 'id'::text)"))
+  category_id Int
+}
+
+model pencils {
+  item_id     Int     @id
+  brand_id    Int
+  code        String?
+  rgb         Json?
+  series_id   Int?
+  pencil_name Json?
+  brands      brands  @relation(fields: [brand_id], references: [id], onDelete: Cascade)
+}
