@@ -1,0 +1,3 @@
+id,category_name,parent_id,order
+16623,"{""en"": ""colored pencils"", ""ja"": ""色鉛筆""}",NULL,1
+79002,"{""en"": ""watercolor pencils"", ""ja"": ""水彩色鉛筆""}",16623,1
