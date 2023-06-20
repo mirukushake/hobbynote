@@ -7,7 +7,7 @@
       >
         <i class="pi pi-bars"></i>
       </button>
-      hobbynote
+      <NuxtLink to="/">hobbynote</NuxtLink>
     </nav>
     <aside class="layout-sidebar" v-if="!visible">
       <div><Menu :model="menuItems" /></div>
@@ -27,7 +27,7 @@ const menuItems = ref([
   {
     label: "Arts",
     items: [
-      { label: "Colored pencils", to: "/pencils" },
+      { label: "Colored pencils", to: "/coloredpencils" },
       { label: "Watercolors", to: "/watercolor" },
     ],
   },

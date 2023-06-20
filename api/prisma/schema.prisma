@@ -44,13 +44,16 @@ model item_categories {
   order                 Int?
   item_categories       item_categories?  @relation("item_categoriesToitem_categories_parent_id", fields: [parent_id], references: [id], onDelete: Cascade)
   other_item_categories item_categories[] @relation("item_categoriesToitem_categories_parent_id")
+  items                 items[]
 
   @@unique([parent_id, order], map: "item_categories_parent_id_order_idx")
 }
 
 model items {
-  id          Int @id @default(dbgenerated("unique_random_id(10, 'items'::text, 'id'::text)"))
-  category_id Int
+  id              Int             @id @default(dbgenerated("unique_random_id(10, 'items'::text, 'id'::text)"))
+  category_id     Int
+  item_categories item_categories @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  inventory       inventory?
 }
 
 model pencils {
@@ -60,5 +63,17 @@ model pencils {
   rgb         Json?
   series_id   Int?
   pencil_name Json?
+  quantity    Int?
   brands      brands  @relation(fields: [brand_id], references: [id], onDelete: Cascade)
+}
+
+model inventory {
+  item_id  Int   @id
+  quantity Int?
+  items    items @relation(fields: [item_id], references: [id], onDelete: Cascade)
+}
+
+model pigments {
+  id   Int    @id @default(dbgenerated("unique_random_id(8, 'pigments'::text, 'id'::text)"))
+  name String @unique(map: "pigments_name_idx")
 }
