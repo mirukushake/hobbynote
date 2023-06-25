@@ -7,18 +7,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model brands {
-  id         Int       @id @default(dbgenerated("unique_random_id(8, 'brands'::text, 'id'::text)"))
+model Brand {
+  id         Int      @id @default(dbgenerated("unique_random_id(8, 'brands'::text, 'id'::text)"))
   country_id Int
   brand_name Json
-  countries  countries @relation(fields: [country_id], references: [id], onDelete: Cascade, map: "brands_country_fkey")
-  pencils    pencils[]
+  country    Country  @relation(fields: [country_id], references: [id], onDelete: Cascade, map: "brands_country_fkey")
+  pencils    Pencil[]
+
+  @@map("brands")
 }
 
-model colors {
-  id         Int   @id @default(dbgenerated("unique_random_id(4, 'colors'::text, 'id'::text)"))
+model Color {
+  id         Int      @id @default(dbgenerated("unique_random_id(4, 'colors'::text, 'id'::text)"))
   color      Json?
   color_name Json?
+  order      Int?     @unique(map: "colors_order_idx")
+  pencils    Pencil[]
+
+  @@map("colors")
 }
 
 model combos {
@@ -30,50 +36,87 @@ model combos {
   date_updated DateTime? @db.Timestamp(6)
 }
 
-model countries {
-  id           Int      @id @default(autoincrement())
-  code         String?  @db.VarChar(2)
+model Country {
+  id           Int     @id @default(autoincrement())
+  code         String? @db.VarChar(2)
   country_name Json?
-  brands       brands[]
+  brands       Brand[]
+
+  @@map("countries")
 }
 
-model item_categories {
-  id                    Int               @id @default(dbgenerated("unique_random_id(5, 'item_categories'::text, 'id'::text)"))
-  category_name         Json              @default("{\"en\": \"\"}")
-  parent_id             Int?
-  order                 Int?
-  item_categories       item_categories?  @relation("item_categoriesToitem_categories_parent_id", fields: [parent_id], references: [id], onDelete: Cascade)
-  other_item_categories item_categories[] @relation("item_categoriesToitem_categories_parent_id")
-  items                 items[]
+model ItemCategory {
+  id            Int            @id @default(dbgenerated("unique_random_id(5, 'item_categories'::text, 'id'::text)"))
+  category_name Json           @default("{\"en\": \"\"}")
+  parent_id     Int?
+  order         Int?
+  parent        ItemCategory?  @relation("item_categoriesToitem_categories_parent_id", fields: [parent_id], references: [id], onDelete: Cascade)
+  children      ItemCategory[] @relation("item_categoriesToitem_categories_parent_id")
+  items         Item[]
 
   @@unique([parent_id, order], map: "item_categories_parent_id_order_idx")
+  @@map("item_categories")
 }
 
-model items {
-  id              Int             @id @default(dbgenerated("unique_random_id(10, 'items'::text, 'id'::text)"))
+model Item {
+  id              Int          @id @default(dbgenerated("unique_random_id(10, 'items'::text, 'id'::text)"))
   category_id     Int
-  item_categories item_categories @relation(fields: [category_id], references: [id], onDelete: Cascade)
-  inventory       inventory?
+  inventory       Inventory?
+  item_categories ItemCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  pencils         Pencil?      @relation("itemsTopencils")
+  wishlist        Wishlist?
+
+  @@map("items")
 }
 
-model pencils {
+model Pencil {
   item_id     Int     @id
   brand_id    Int
   code        String?
   rgb         Json?
   series_id   Int?
   pencil_name Json?
-  quantity    Int?
-  brands      brands  @relation(fields: [brand_id], references: [id], onDelete: Cascade)
+  color_id    Int?
+  order       Int?
+  brand       Brand   @relation(fields: [brand_id], references: [id], onDelete: Cascade)
+  color       Color?  @relation(fields: [color_id], references: [id], onDelete: Cascade)
+  items       Item    @relation("itemsTopencils", fields: [item_id], references: [id], onDelete: Cascade)
+
+  @@unique([brand_id, order], map: "pencils_brand_id_order_idx")
+  @@map("pencils")
 }
 
-model inventory {
-  item_id  Int   @id
+model Inventory {
+  item_id  Int     @id
   quantity Int?
-  items    items @relation(fields: [item_id], references: [id], onDelete: Cascade)
+  notes    String?
+  item     Item    @relation(fields: [item_id], references: [id], onDelete: Cascade)
+
+  @@map("inventory")
 }
 
 model pigments {
   id   Int    @id @default(dbgenerated("unique_random_id(8, 'pigments'::text, 'id'::text)"))
   name String @unique(map: "pigments_name_idx")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model temp_pencils {
+  code        String?
+  brand_id    Int?
+  rgb         Json?
+  color_id    Int?
+  order       Int?
+  pencil_name Json?
+
+  @@ignore
+}
+
+model Wishlist {
+  item_id  Int     @id
+  quantity Int?
+  notes    String?
+  items    Item    @relation(fields: [item_id], references: [id], onDelete: Cascade)
+
+  @@map("wishlist")
 }
