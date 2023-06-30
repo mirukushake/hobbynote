@@ -20,14 +20,14 @@
         :value="filteredPencils"
         layout="grid"
         data-key="item_id"
-        v-if="pencilList.length > 0"
+        v-if="filteredPencils.length > 0"
       >
         <template #grid="slotProps">
           <div class="col-3 p-2">
             <div
               class="border-1 surface-border border-round flex"
               :class="{
-                'bg-green-50': slotProps.data.inventory !== null || 0,
+                'bg-green-50': slotProps.data.inv_qty != +0,
               }"
             >
               <div
@@ -47,9 +47,14 @@
                       rounded
                       aria-label="Add to inventory"
                       :class="{
-                        'text-green-500':
-                          slotProps.data.inventory !== null || 0,
+                        'text-green-500': slotProps.data.inv_qty !== 0,
                       }"
+                      @click="
+                        updateInventory(
+                          slotProps.data.item_id,
+                          slotProps.data.inv_qty
+                        )
+                      "
                     />
                     <Button
                       icon="fa-regular fa-heart"
@@ -57,9 +62,14 @@
                       rounded
                       aria-label="Add to wishlist"
                       :class="{
-                        'text-pink-500': slotProps.data.wishlist !== null || 0,
+                        'text-pink-500': slotProps.data.wish_qty !== 0,
                       }"
-                      @click="getInfo(slotProps.data)"
+                      @click="
+                        updateWishlist(
+                          slotProps.data.item_id,
+                          slotProps.data.wish_qty
+                        )
+                      "
                     />
                   </div>
                 </div>
@@ -73,20 +83,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue"
+import { computed, ref, nextTick } from "vue"
+import { storeToRefs } from "pinia"
 import { usePencilStore } from "@/store/store"
 
 const search = ref("")
-const { fetchPencils, pencilList } = usePencilStore()
+const pencilStore = usePencilStore()
+const { fetchPencils, updateInventory, updateWishlist } = pencilStore
+const pencilList = storeToRefs(pencilStore).pencilList
 const test = ref({})
 
 await fetchPencils()
+await nextTick()
 
 const filteredPencils = computed(() => {
-  return pencilList.filter((val) => val.code.includes(search.value))
+  return pencilList.value.filter((val) => val.code.includes(search.value))
 })
-
-const getInfo = (pencil: any) => {
-  test.value = pencil
-}
 </script>

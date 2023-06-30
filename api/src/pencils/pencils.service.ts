@@ -23,12 +23,6 @@ export class PencilsService {
       include: {
         brand: true,
         color: true,
-        items: {
-          include: {
-            inventory: true,
-            wishlist: true,
-          },
-        },
       },
       orderBy: [
         {
@@ -41,12 +35,10 @@ export class PencilsService {
     });
 
     const flatPencil = pencils.map((pencil) => {
-      const { items, rgb, ...rest } = pencil;
+      const { rgb, ...rest } = pencil;
       return {
         ...rest,
         rgb: rgb['r'] + ',' + rgb['g'] + ',' + rgb['b'],
-        inventory: items.inventory ? items.inventory.quantity : null,
-        wishlist: items.wishlist ? items.wishlist.quantity : null,
       };
     });
 
@@ -59,28 +51,43 @@ export class PencilsService {
       include: {
         brand: true,
         color: true,
-        items: {
-          include: {
-            inventory: true,
-            wishlist: true,
-          },
-        },
       },
     });
 
-    const { items, rgb, ...rest } = pencil;
+    const { rgb, ...rest } = pencil;
 
     const updatedPencil = {
       ...rest,
       rgb: pencil.rgb['r'] + ',' + pencil.rgb['g'] + ',' + pencil.rgb['b'],
-      inventory: items.inventory ? items.inventory.quantity : null,
-      wishlist: items.wishlist ? items.wishlist.quantity : null,
     };
     return plainToInstance(PencilEntity, updatedPencil);
   }
 
-  update(id: number, updatePencilDto: UpdatePencilDto) {
-    return `This action updates a #${id} Pencil`;
+  async update(item_id: number, updatePencilDto: UpdatePencilDto) {
+    try {
+      console.log(updatePencilDto);
+
+      const pencil = await this.prisma.pencil.update({
+        where: { item_id: item_id },
+        data: updatePencilDto,
+        include: {
+          brand: true,
+          color: true,
+        },
+      });
+
+      console.log(pencil);
+
+      const { rgb, ...rest } = pencil;
+
+      const updatedPencil = {
+        ...rest,
+        rgb: pencil.rgb['r'] + ',' + pencil.rgb['g'] + ',' + pencil.rgb['b'],
+      };
+      return plainToInstance(PencilEntity, updatedPencil);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   remove(id: number) {

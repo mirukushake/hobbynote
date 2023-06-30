@@ -8,6 +8,17 @@ export default defineNuxtConfig({
   build: {
     transpile: ["primevue"],
   },
-  ssr: false,
-  modules: ["@pinia/nuxt"],
+  ssr: true,
+  modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt"],
+  nitro: {
+    devProxy: {
+      "/api": {
+        target: "http://localhost:4000",
+        changeOrigin: true,
+      },
+    },
+  },
+  piniaPersistedstate: {
+    storage: "localStorage",
+  },
 })

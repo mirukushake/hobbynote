@@ -61,10 +61,8 @@ model ItemCategory {
 model Item {
   id              Int          @id @default(dbgenerated("unique_random_id(10, 'items'::text, 'id'::text)"))
   category_id     Int
-  inventory       Inventory?
-  item_categories ItemCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  item_category ItemCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
   pencils         Pencil?      @relation("itemsTopencils")
-  wishlist        Wishlist?
 
   @@map("items")
 }
@@ -78,21 +76,14 @@ model Pencil {
   pencil_name Json?
   color_id    Int?
   order       Int?
+  inv_qty     Int?    @default(0)
+  wish_qty    Int?    @default(0)
   brand       Brand   @relation(fields: [brand_id], references: [id], onDelete: Cascade)
   color       Color?  @relation(fields: [color_id], references: [id], onDelete: Cascade)
-  items       Item    @relation("itemsTopencils", fields: [item_id], references: [id], onDelete: Cascade)
+  item       Item    @relation("itemsTopencils", fields: [item_id], references: [id], onDelete: Cascade)
 
   @@unique([brand_id, order], map: "pencils_brand_id_order_idx")
   @@map("pencils")
-}
-
-model Inventory {
-  item_id  Int     @id
-  quantity Int?
-  notes    String?
-  item     Item    @relation(fields: [item_id], references: [id], onDelete: Cascade)
-
-  @@map("inventory")
 }
 
 model pigments {
@@ -110,13 +101,4 @@ model temp_pencils {
   pencil_name Json?
 
   @@ignore
-}
-
-model Wishlist {
-  item_id  Int     @id
-  quantity Int?
-  notes    String?
-  items    Item    @relation(fields: [item_id], references: [id], onDelete: Cascade)
-
-  @@map("wishlist")
 }

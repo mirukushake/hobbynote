@@ -9,10 +9,29 @@ export const usePencilStore = defineStore("pencil", {
   },
   actions: {
     async fetchPencils() {
-      const { data }: any = await useFetch("http://localhost:4000/pencils")
+      const { data }: any = await useFetch("/api/pencils")
       this.pencilList = data
     },
-    async addInventory() {},
+    async updateInventory(item_id: number, inv_qty: number) {
+      const { data }: any = await useFetch(`/api/pencils//${item_id}`, {
+        body: { inv_qty: inv_qty === 0 ? 1 : 0 },
+        method: "PATCH",
+      })
+      const newArray = this.pencilList.map((p) =>
+        p.item_id === item_id ? data.value : p
+      )
+      this.pencilList = newArray
+    },
+    async updateWishlist(item_id: number, wish_qty: number) {
+      const { data }: any = await useFetch(`/api/pencils//${item_id}`, {
+        body: { wish_qty: wish_qty === 0 ? 1 : 0 },
+        method: "PATCH",
+      })
+      const newArray = this.pencilList.map((p) =>
+        p.item_id === item_id ? data.value : p
+      )
+      this.pencilList = newArray
+    },
   },
 })
 
@@ -24,8 +43,8 @@ interface Pencil {
   order: number
   color: number
   rgb: string
-  inventory: number | null
-  wishlist: number | null
+  inv_qty: number
+  wish_qty: number
 }
 
 interface Brand {

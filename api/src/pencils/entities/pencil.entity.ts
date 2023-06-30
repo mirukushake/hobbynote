@@ -1,7 +1,7 @@
 import { Exclude, Expose } from 'class-transformer';
 import { Brand } from 'src/common/entities/brand.entity';
 import { Color } from 'src/common/entities/color.entity';
-import { Pencil, Prisma, Wishlist } from '@prisma/client';
+import { Pencil, Prisma } from '@prisma/client';
 
 export class PencilEntity implements Pencil {
   item_id: number;
@@ -11,8 +11,8 @@ export class PencilEntity implements Pencil {
   order: number;
   color: Color;
   rgb: string;
-  inventory: number | null;
-  wishlist: number | null;
+  inv_qty: number;
+  wish_qty: number;
 
   @Exclude()
   brand_id: number;
