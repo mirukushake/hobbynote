@@ -12,6 +12,7 @@ model Brand {
   country_id Int
   brand_name Json
   country    Country  @relation(fields: [country_id], references: [id], onDelete: Cascade, map: "brands_country_fkey")
+  floss      Floss[]
   pencils    Pencil[]
 
   @@map("brands")
@@ -22,6 +23,7 @@ model Color {
   color      Json?
   color_name Json?
   order      Int?     @unique(map: "colors_order_idx")
+  floss      Floss[]
   pencils    Pencil[]
 
   @@map("colors")
@@ -59,10 +61,11 @@ model ItemCategory {
 }
 
 model Item {
-  id              Int          @id @default(dbgenerated("unique_random_id(10, 'items'::text, 'id'::text)"))
-  category_id     Int
+  id            Int          @id @default(dbgenerated("unique_random_id(10, 'items'::text, 'id'::text)"))
+  category_id   Int
+  floss         Floss?
   item_category ItemCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
-  pencils         Pencil?      @relation("itemsTopencils")
+  pencil       Pencil?      @relation("itemsTopencils")
 
   @@map("items")
 }
@@ -80,7 +83,7 @@ model Pencil {
   wish_qty    Int?    @default(0)
   brand       Brand   @relation(fields: [brand_id], references: [id], onDelete: Cascade)
   color       Color?  @relation(fields: [color_id], references: [id], onDelete: Cascade)
-  item       Item    @relation("itemsTopencils", fields: [item_id], references: [id], onDelete: Cascade)
+  item        Item    @relation("itemsTopencils", fields: [item_id], references: [id], onDelete: Cascade)
 
   @@unique([brand_id, order], map: "pencils_brand_id_order_idx")
   @@map("pencils")
@@ -101,4 +104,45 @@ model temp_pencils {
   pencil_name Json?
 
   @@ignore
+}
+
+model EmbroideryDesign {
+  id                      Int                       @id @default(dbgenerated("unique_random_id(8, 'embroidery_design'::text, 'id'::text)"))
+  title                   String?
+  finished_image          String?
+  pattern_image           String?
+  book_title              String?
+  website_url             String?
+  notes                   String?
+  floss EmbroideryDesignFloss[] 
+
+  @@map("embroidery_design")
+}
+
+model EmbroideryDesignFloss {
+  design_id         Int
+  floss_id          Int
+  embroidery_design EmbroideryDesign? @relation(fields: [design_id], references: [id], onDelete: Cascade)
+  floss             Floss?             @relation(fields: [floss_id], references: [item_id], onDelete: Cascade)
+
+  @@map("embroidery_design_floss")
+  @@id([design_id, floss_id])
+}
+
+model Floss {
+  item_id                 Int                       @id
+  brand_id                Int
+  code                    String?
+  floss_name              Json?
+  rgb                     Json?
+  order                   Int?
+  color_id                Int?
+  inv_qty                 Int?
+  wish_qty                Int?
+  embroidery_design EmbroideryDesignFloss[] 
+  brand                  Brand                     @relation(fields: [brand_id], references: [id], onDelete: Cascade)
+  color                  Color?                    @relation(fields: [color_id], references: [id], onDelete: Cascade)
+  items                   Item                      @relation(fields: [item_id], references: [id], onDelete: Cascade)
+
+  @@map("floss")
 }

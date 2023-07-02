@@ -1,12 +1,12 @@
 import { Exclude } from 'class-transformer';
 import { Brand } from 'src/common/entities/brand.entity';
 import { Color } from 'src/common/entities/color.entity';
-import { Pencil } from '@prisma/client';
+import { Floss } from '@prisma/client';
 
-export class PencilEntity implements Pencil {
+export class FlossEntity implements Floss {
   item_id: number;
   code: string;
-  pencil_name: { en: string; ja: string };
+  floss_name: { en: string; ja: string };
   brand: Brand;
   order: number;
   color: Color;

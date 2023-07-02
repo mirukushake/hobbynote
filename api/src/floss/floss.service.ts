@@ -3,23 +3,23 @@ import {
   ClassSerializerInterceptor,
   UseInterceptors,
 } from '@nestjs/common';
-import { CreatePencilDto } from './dto/create-pencil.dto';
-import { UpdatePencilDto } from './dto/update-pencil.dto';
+import { CreateFlossDto } from './dto/create-floss.dto';
+import { UpdateFlossDto } from './dto/update-floss.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { PencilEntity } from './entities/pencil.entity';
+import { FlossEntity } from './entities/floss.entity';
 import { plainToInstance } from 'class-transformer';
 
 @Injectable()
-export class PencilsService {
+export class FlossService {
   constructor(private prisma: PrismaService) {}
 
-  create(createPencilDto: CreatePencilDto) {
-    return 'This action adds a new Pencil';
+  create(createFlossDto: CreateFlossDto) {
+    return 'This action adds a new floss';
   }
 
   @UseInterceptors(ClassSerializerInterceptor)
   async findAll() {
-    const pencils = await this.prisma.pencil.findMany({
+    const floss = await this.prisma.floss.findMany({
       include: {
         brand: true,
         color: true,
@@ -34,20 +34,20 @@ export class PencilsService {
       ],
     });
 
-    const flatPencil = pencils.map((pencil) => {
-      const { rgb, ...rest } = pencil;
+    const flatFloss = floss.map((floss) => {
+      const { rgb, ...rest } = floss;
       return {
         ...rest,
         rgb: rgb['r'] + ',' + rgb['g'] + ',' + rgb['b'],
       };
     });
 
-    return plainToInstance(PencilEntity, flatPencil);
+    return plainToInstance(FlossEntity, flatFloss);
   }
 
   @UseInterceptors(ClassSerializerInterceptor)
   async findOne(item_id: number) {
-    const pencil = await this.prisma.pencil.findUnique({
+    const floss = await this.prisma.floss.findUnique({
       where: { item_id },
       include: {
         brand: true,
@@ -55,35 +55,35 @@ export class PencilsService {
       },
     });
 
-    const { rgb, ...rest } = pencil;
-
-    const updatedPencil = {
+    const { rgb, ...rest } = floss;
+    const updatedFloss = {
       ...rest,
-      rgb: pencil.rgb['r'] + ',' + pencil.rgb['g'] + ',' + pencil.rgb['b'],
+      rgb: rgb['r'] + ',' + rgb['g'] + ',' + rgb['b'],
     };
-    return plainToInstance(PencilEntity, updatedPencil);
+
+    return plainToInstance(FlossEntity, updatedFloss);
   }
 
-  async update(item_id: number, updatePencilDto: UpdatePencilDto) {
+  async update(item_id: number, updateFlossDto: UpdateFlossDto) {
     try {
-      console.log(updatePencilDto);
+      console.log(updateFlossDto);
 
-      const pencil = await this.prisma.pencil.update({
+      const floss = await this.prisma.floss.update({
         where: { item_id: item_id },
-        data: updatePencilDto,
+        data: updateFlossDto,
         include: {
           brand: true,
           color: true,
         },
       });
 
-      const { rgb, ...rest } = pencil;
+      const { rgb, ...rest } = floss;
 
-      const updatedPencil = {
+      const updatedFloss = {
         ...rest,
-        rgb: pencil.rgb['r'] + ',' + pencil.rgb['g'] + ',' + pencil.rgb['b'],
+        rgb: floss.rgb['r'] + ',' + floss.rgb['g'] + ',' + floss.rgb['b'],
       };
-      return plainToInstance(PencilEntity, updatedPencil);
+      return plainToInstance(FlossEntity, updatedFloss);
     } catch (err) {
       console.log(err);
     }
@@ -96,7 +96,7 @@ export class PencilsService {
       },
     });
 
-    const deletePencil = this.prisma.pencil.delete({
+    const deleteFloss = this.prisma.floss.delete({
       where: {
         item_id: item_id,
       },
@@ -104,7 +104,7 @@ export class PencilsService {
 
     const transaction = await this.prisma.$transaction([
       deleteItem,
-      deletePencil,
+      deleteFloss,
     ]);
 
     return transaction;
