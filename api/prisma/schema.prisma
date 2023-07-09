@@ -65,7 +65,7 @@ model Item {
   category_id   Int
   floss         Floss?
   item_category ItemCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
-  pencil       Pencil?      @relation("itemsTopencils")
+  pencil        Pencil?      @relation("itemsTopencils")
 
   @@map("items")
 }
@@ -107,42 +107,43 @@ model temp_pencils {
 }
 
 model EmbroideryDesign {
-  id                      Int                       @id @default(dbgenerated("unique_random_id(8, 'embroidery_design'::text, 'id'::text)"))
-  title                   String?
-  finished_image          String?
-  pattern_image           String?
-  book_title              String?
-  website_url             String?
-  notes                   String?
-  floss EmbroideryDesignFloss[] 
+  id             Int                     @id @default(dbgenerated("unique_random_id(8, 'embroidery_design'::text, 'id'::text)"))
+  title          String?
+  finished_image String?
+  pattern_image  String?
+  book_title     String?
+  website_url    String?
+  notes          String?
+  floss          EmbroideryDesignFloss[] 
 
   @@map("embroidery_design")
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model EmbroideryDesignFloss {
   design_id         Int
   floss_id          Int
-  embroidery_design EmbroideryDesign? @relation(fields: [design_id], references: [id], onDelete: Cascade)
-  floss             Floss?             @relation(fields: [floss_id], references: [item_id], onDelete: Cascade)
+  embroidery_design EmbroideryDesign @relation(fields: [design_id], references: [id], onDelete: Cascade)
+  floss             Floss            @relation(fields: [floss_id], references: [item_id], onDelete: Cascade)
 
   @@map("embroidery_design_floss")
   @@id([design_id, floss_id])
 }
 
 model Floss {
-  item_id                 Int                       @id
-  brand_id                Int
-  code                    String?
-  floss_name              Json?
-  rgb                     Json?
-  order                   Int?
-  color_id                Int?
-  inv_qty                 Int?
-  wish_qty                Int?
+  item_id           Int                     @id
+  brand_id          Int
+  code              String?
+  floss_name        Json?
+  rgb               Json?
+  order             Int?
+  color_id          Int?
+  inv_qty           Int?                    @default(0)
+  wish_qty          Int?                    @default(0)
   embroidery_design EmbroideryDesignFloss[] 
-  brand                  Brand                     @relation(fields: [brand_id], references: [id], onDelete: Cascade)
-  color                  Color?                    @relation(fields: [color_id], references: [id], onDelete: Cascade)
-  items                   Item                      @relation(fields: [item_id], references: [id], onDelete: Cascade)
+  brand             Brand                   @relation(fields: [brand_id], references: [id], onDelete: Cascade)
+  color             Color?                  @relation(fields: [color_id], references: [id], onDelete: Cascade)
+  items             Item                    @relation(fields: [item_id], references: [id], onDelete: Cascade)
 
   @@map("floss")
 }

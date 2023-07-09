@@ -27,16 +27,27 @@ const menuItems = ref([
   {
     label: "Arts",
     items: [
-      { label: "Colored pencils", to: "/coloredpencils" },
+      { label: "Colored pencils", to: "/pencils" },
       { label: "Watercolors", to: "/watercolor" },
     ],
   },
   {
     label: "Crafts",
     items: [
-      { label: "Embroidery floss", to: "/pencils" },
-      { label: "Fabric", to: "/watercolor" },
+      { label: "Embroidery floss", to: "/floss" },
+      { label: "Fabric", to: "/fabric" },
     ],
+  },
+  {
+    label: "Projects",
+    items: [
+      { label: "Embroidery", to: "/embroidery" },
+      { label: "Sewing", to: "/sewing" },
+    ],
+  },
+  {
+    label: "Tools",
+    items: [{ label: "Wishlist", to: "/wishlist" }],
   },
 ])
 

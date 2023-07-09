@@ -4,7 +4,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { PencilsModule } from './pencils/pencils.module';
-import { CorsMiddleware } from './common/middleware/cors.middleware';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { FlossModule } from './floss/floss.module';
 import { EmbroideryDesignModule } from './embroidery-design/embroidery-design.module';

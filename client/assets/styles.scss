@@ -117,12 +117,24 @@ body {
   }
 }
 
-.p-button.p-button-icon-only.p-button-rounded {
-  border-radius: 50%;
-  height: 1.5rem;
+.dataview {
+  .p-button.p-button-icon-only.p-button-rounded {
+    border-radius: 50%;
+    height: 1.5rem;
+  }
+
+  .p-button.p-button-icon-only {
+    width: 1.5rem;
+    padding: 0.75rem 0;
+  }
 }
 
-.p-button.p-button-icon-only {
-  width: 1.5rem;
-  padding: 0.75rem 0;
+.p-image-preview-container {
+  width: 100%;
+}
+
+.gallerymeta {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
 }
