@@ -1,15 +1,59 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseInterceptors,
+  UploadedFiles,
+} from '@nestjs/common';
+import {
+  FileFieldsInterceptor,
+  FileInterceptor,
+} from '@nestjs/platform-express';
 import { EmbroideryDesignService } from './embroidery-design.service';
 import { CreateEmbroideryDesignDto } from './dto/create-embroidery-design.dto';
 import { UpdateEmbroideryDesignDto } from './dto/update-embroidery-design.dto';
+import { finished } from 'stream';
+import { diskStorage } from 'multer';
+import { editFileName, imageFileFilter } from 'src/common/file-upload.utils';
 
 @Controller('embroidery-design')
 export class EmbroideryDesignController {
-  constructor(private readonly embroideryDesignService: EmbroideryDesignService) {}
+  constructor(
+    private readonly embroideryDesignService: EmbroideryDesignService,
+  ) {}
 
   @Post()
-  create(@Body() createEmbroideryDesignDto: CreateEmbroideryDesignDto) {
-    return this.embroideryDesignService.create(createEmbroideryDesignDto);
+  @UseInterceptors(
+    FileFieldsInterceptor(
+      [
+        { name: 'finishedimage', maxCount: 1 },
+        { name: 'designimage', maxCount: 1 },
+      ],
+      {
+        storage: diskStorage({
+          destination: './public/images',
+          filename: editFileName,
+        }),
+        fileFilter: imageFileFilter,
+      },
+    ),
+  )
+  create(
+    @UploadedFiles()
+    files: {
+      finishedimage?: Express.Multer.File[];
+      designimage?: Express.Multer.File[];
+    },
+    @Body() createEmbroideryDesignDto: CreateEmbroideryDesignDto,
+  ) {
+    return this.embroideryDesignService.create(
+      files,
+      createEmbroideryDesignDto,
+    );
   }
 
   @Get()
@@ -23,7 +67,10 @@ export class EmbroideryDesignController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateEmbroideryDesignDto: UpdateEmbroideryDesignDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateEmbroideryDesignDto: UpdateEmbroideryDesignDto,
+  ) {
     return this.embroideryDesignService.update(+id, updateEmbroideryDesignDto);
   }
 

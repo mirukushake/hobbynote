@@ -9,7 +9,7 @@ import DataView from "primevue/dataview"
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions"
 import SplitButton from "primevue/splitbutton"
 import Panel from "primevue/panel"
-import DynamicDialog from "primevue/dialog"
+import Dialog from "primevue/dialog"
 import DialogService from "primevue/dialogservice"
 import Checkbox from "primevue/checkbox"
 import Paginator from "primevue/paginator"
@@ -19,6 +19,11 @@ import Toast from "primevue/toast"
 import ToastService from "primevue/toastservice"
 import Card from "primevue/card"
 import Image from "primevue/image"
+import FileUpload from "primevue/fileupload"
+import Textarea from "primevue/textarea"
+import SelectButton from "primevue/selectbutton"
+// import Galleria from "primevue/galleria"
+import AutoComplete from "primevue/autocomplete"
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: false })
@@ -33,7 +38,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("DataViewLayoutOptions", DataViewLayoutOptions)
   nuxtApp.vueApp.component("SplitButton", SplitButton)
   nuxtApp.vueApp.component("Panel", Panel)
-  nuxtApp.vueApp.component("DynamicDialog", DynamicDialog)
+  nuxtApp.vueApp.component("Dialog", Dialog)
   nuxtApp.vueApp.component("Checkbox", Checkbox)
   nuxtApp.vueApp.component("Paginator", Paginator)
   nuxtApp.vueApp.component("RadioButton", RadioButton)
@@ -41,5 +46,9 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Toast", Toast)
   nuxtApp.vueApp.component("Card", Card)
   nuxtApp.vueApp.component("Image", Image)
-  //other components that you need
+  nuxtApp.vueApp.component("FileUpload", FileUpload)
+  nuxtApp.vueApp.component("Textarea", Textarea)
+  nuxtApp.vueApp.component("SelectButton", SelectButton)
+  nuxtApp.vueApp.component("AutoComplete", AutoComplete)
+  // nuxtApp.vueApp.component("Galleria", Galleria)
 })

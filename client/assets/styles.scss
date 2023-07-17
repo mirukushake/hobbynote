@@ -129,8 +129,11 @@ body {
   }
 }
 
-.p-image-preview-container {
+.designheader .p-image-preview-container {
   width: 100%;
+  img {
+    object-fit: cover;
+  }
 }
 
 .gallerymeta {

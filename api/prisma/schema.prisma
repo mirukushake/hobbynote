@@ -8,23 +8,25 @@ datasource db {
 }
 
 model Brand {
-  id         Int      @id @default(dbgenerated("unique_random_id(8, 'brands'::text, 'id'::text)"))
-  country_id Int
-  brand_name Json
-  country    Country  @relation(fields: [country_id], references: [id], onDelete: Cascade, map: "brands_country_fkey")
-  floss      Floss[]
-  pencils    Pencil[]
+  id          Int          @id @default(dbgenerated("unique_random_id(8, 'brands'::text, 'id'::text)"))
+  country_id  Int
+  brand_name  Json
+  country     Country      @relation(fields: [country_id], references: [id], onDelete: Cascade, map: "brands_country_fkey")
+  floss       Floss[]
+  pencils     Pencil[]
+  watercolors Watercolor[]
 
   @@map("brands")
 }
 
 model Color {
-  id         Int      @id @default(dbgenerated("unique_random_id(4, 'colors'::text, 'id'::text)"))
-  color      Json?
-  color_name Json?
-  order      Int?     @unique(map: "colors_order_idx")
-  floss      Floss[]
-  pencils    Pencil[]
+  id          Int          @id @default(dbgenerated("unique_random_id(4, 'colors'::text, 'id'::text)"))
+  color       Json?
+  color_name  Json?
+  order       Int?         @unique(map: "colors_order_idx")
+  floss       Floss[]
+  pencils     Pencil[]
+  watercolors Watercolor[]
 
   @@map("colors")
 }
@@ -79,8 +81,8 @@ model Pencil {
   pencil_name Json?
   color_id    Int?
   order       Int?
-  inv_qty     Int?    @default(0)
-  wish_qty    Int?    @default(0)
+  inv_qty     Int     @default(0)
+  wish_qty    Int     @default(0)
   brand       Brand   @relation(fields: [brand_id], references: [id], onDelete: Cascade)
   color       Color?  @relation(fields: [color_id], references: [id], onDelete: Cascade)
   item        Item    @relation("itemsTopencils", fields: [item_id], references: [id], onDelete: Cascade)
@@ -89,9 +91,12 @@ model Pencil {
   @@map("pencils")
 }
 
-model pigments {
-  id   Int    @id @default(dbgenerated("unique_random_id(8, 'pigments'::text, 'id'::text)"))
-  name String @unique(map: "pigments_name_idx")
+model Pigment {
+  id          Int                 @id @default(dbgenerated("unique_random_id(8, 'pigments'::text, 'id'::text)"))
+  name        String              @unique(map: "pigments_name_idx")
+  watercolors WatercolorPigment[]
+
+  @@map("pigments")
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
@@ -114,20 +119,23 @@ model EmbroideryDesign {
   book_title     String?
   website_url    String?
   notes          String?
-  floss          EmbroideryDesignFloss[] 
+  status_id      Int?
+  created        DateTime                @default(now()) @db.Timestamp(6)
+  updated        DateTime?               @db.Timestamp(6)
+  status         Status?                 @relation("embroidery_design_statusTostatus", fields: [status_id], references: [id], onDelete: Cascade, map: "embroidery_design_status_fkey")
+  floss          EmbroideryDesignFloss[]
 
   @@map("embroidery_design")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model EmbroideryDesignFloss {
   design_id         Int
   floss_id          Int
   embroidery_design EmbroideryDesign @relation(fields: [design_id], references: [id], onDelete: Cascade)
   floss             Floss            @relation(fields: [floss_id], references: [item_id], onDelete: Cascade)
 
-  @@map("embroidery_design_floss")
   @@id([design_id, floss_id])
+  @@map("embroidery_design_floss")
 }
 
 model Floss {
@@ -138,12 +146,51 @@ model Floss {
   rgb               Json?
   order             Int?
   color_id          Int?
-  inv_qty           Int?                    @default(0)
-  wish_qty          Int?                    @default(0)
-  embroidery_design EmbroideryDesignFloss[] 
+  inv_qty           Int                     @default(0)
+  wish_qty          Int                     @default(0)
+  embroidery_design EmbroideryDesignFloss[]
   brand             Brand                   @relation(fields: [brand_id], references: [id], onDelete: Cascade)
   color             Color?                  @relation(fields: [color_id], references: [id], onDelete: Cascade)
   items             Item                    @relation(fields: [item_id], references: [id], onDelete: Cascade)
 
   @@map("floss")
+}
+
+model Status {
+  id                Int                @id @default(autoincrement())
+  code              String?
+  code_name         Json?
+  order             Int?               @unique
+  embroidery_design EmbroideryDesign[] @relation("embroidery_design_statusTostatus")
+
+  @@map("status")
+}
+
+model WatercolorPigment {
+  watercolor_id Int
+  pigment_id    Int
+  pigment       Pigment    @relation(fields: [pigment_id], references: [id], onDelete: Cascade)
+  watercolor    Watercolor @relation(fields: [watercolor_id], references: [item_id], onDelete: Cascade)
+
+  @@id([watercolor_id, pigment_id])
+  @@map("watercolor_pigment")
+}
+
+model Watercolor {
+  item_id    Int                 @id
+  brand_id   Int
+  code       String?
+  swatch     String?
+  series_id  Int?
+  paint_name Json?
+  color_id   Int?
+  sizes      Int[]
+  order      Int?
+  inv_qty    Int                 @default(0)
+  wish_qty   Int                 @default(0)
+  pigments   WatercolorPigment[]
+  brands     Brand               @relation(fields: [brand_id], references: [id], onDelete: Cascade)
+  colors     Color?              @relation(fields: [color_id], references: [id], onDelete: Cascade)
+
+  @@map("watercolors")
 }

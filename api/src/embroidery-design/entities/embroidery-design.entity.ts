@@ -1,4 +1,6 @@
+import { Exclude } from 'class-transformer';
 import { Floss, EmbroideryDesign } from '@prisma/client';
+import { Status } from 'src/common/entities/status.entity';
 
 export class DesignEntity implements EmbroideryDesign {
   id: number;
@@ -9,4 +11,10 @@ export class DesignEntity implements EmbroideryDesign {
   website_url: string;
   notes: string;
   floss: Floss;
+  status: Status;
+  created: Date;
+  updated: Date;
+
+  @Exclude()
+  status_id: number;
 }
