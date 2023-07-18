@@ -1,7 +1,8 @@
-import { Exclude } from 'class-transformer';
+import { Exclude, Expose } from 'class-transformer';
 import { Brand } from 'src/common/entities/brand.entity';
 import { Color } from 'src/common/entities/color.entity';
 import { Floss } from '@prisma/client';
+import { RGB } from 'src/common/entities/rgb.entity';
 
 export class FlossEntity implements Floss {
   item_id: number;
@@ -10,7 +11,8 @@ export class FlossEntity implements Floss {
   brand: Brand;
   order: number;
   color: Color;
-  rgb: string;
+
+  rgb: any;
   inv_qty: number;
   wish_qty: number;
 
@@ -22,4 +24,9 @@ export class FlossEntity implements Floss {
 
   @Exclude()
   color_id: number | null;
+
+  @Expose()
+  get background(): string {
+    return `${this.rgb.r},${this.rgb.g},${this.rgb.b}`;
+  }
 }

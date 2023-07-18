@@ -25,14 +25,17 @@ export class EmbroideryDesignService {
         book_title: createEmbroideryDesignDto.booktitle,
         website_url: createEmbroideryDesignDto.websiteurl,
         notes: createEmbroideryDesignDto.notes,
-        status_id: parseInt(createEmbroideryDesignDto.status_id),
+        status_id: parseInt(createEmbroideryDesignDto.status_id) || null,
         floss: {
-          createMany: {
-            data: JSON.parse(createEmbroideryDesignDto.floss).map((record) => ({
-              floss_id: record.value,
-            })),
-          },
+          connect: JSON.parse(createEmbroideryDesignDto.floss).map(
+            (record) => ({
+              item_id: record.value,
+            }),
+          ),
         },
+      },
+      include: {
+        floss: true,
       },
     });
 
@@ -44,13 +47,14 @@ export class EmbroideryDesignService {
     }
   }
 
-  @UseInterceptors(ClassSerializerInterceptor)
   async findAll() {
     const designs = await this.prisma.embroideryDesign.findMany({
-      include: { status: true, floss: { include: { floss: true } } },
+      include: { status: true, floss: true },
     });
 
-    return plainToInstance(DesignEntity, designs);
+    return plainToInstance(DesignEntity, designs, {
+      enableImplicitConversion: true,
+    });
   }
 
   findOne(id: number) {

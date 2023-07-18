@@ -17,7 +17,6 @@ export class FlossService {
     return 'This action adds a new floss';
   }
 
-  @UseInterceptors(ClassSerializerInterceptor)
   async findAll() {
     const floss = await this.prisma.floss.findMany({
       include: {
@@ -34,18 +33,9 @@ export class FlossService {
       ],
     });
 
-    const flatFloss = floss.map((floss) => {
-      const { rgb, ...rest } = floss;
-      return {
-        ...rest,
-        rgb: rgb['r'] + ',' + rgb['g'] + ',' + rgb['b'],
-      };
-    });
-
-    return plainToInstance(FlossEntity, flatFloss);
+    return plainToInstance(FlossEntity, floss);
   }
 
-  @UseInterceptors(ClassSerializerInterceptor)
   async findOne(item_id: number) {
     const floss = await this.prisma.floss.findUnique({
       where: { item_id },
@@ -55,13 +45,7 @@ export class FlossService {
       },
     });
 
-    const { rgb, ...rest } = floss;
-    const updatedFloss = {
-      ...rest,
-      rgb: rgb['r'] + ',' + rgb['g'] + ',' + rgb['b'],
-    };
-
-    return plainToInstance(FlossEntity, updatedFloss);
+    return plainToInstance(FlossEntity, floss);
   }
 
   async update(item_id: number, updateFlossDto: UpdateFlossDto) {
@@ -77,13 +61,7 @@ export class FlossService {
         },
       });
 
-      const { rgb, ...rest } = floss;
-
-      const updatedFloss = {
-        ...rest,
-        rgb: floss.rgb['r'] + ',' + floss.rgb['g'] + ',' + floss.rgb['b'],
-      };
-      return plainToInstance(FlossEntity, updatedFloss);
+      return plainToInstance(FlossEntity, floss);
     } catch (err) {
       console.log(err);
     }

@@ -17,7 +17,6 @@ export class PencilsService {
     return 'This action adds a new Pencil';
   }
 
-  @UseInterceptors(ClassSerializerInterceptor)
   async findAll() {
     const pencils = await this.prisma.pencil.findMany({
       include: {
@@ -34,18 +33,9 @@ export class PencilsService {
       ],
     });
 
-    const flatPencil = pencils.map((pencil) => {
-      const { rgb, ...rest } = pencil;
-      return {
-        ...rest,
-        rgb: rgb['r'] + ',' + rgb['g'] + ',' + rgb['b'],
-      };
-    });
-
-    return plainToInstance(PencilEntity, flatPencil);
+    return plainToInstance(PencilEntity, pencils);
   }
 
-  @UseInterceptors(ClassSerializerInterceptor)
   async findOne(item_id: number) {
     const pencil = await this.prisma.pencil.findUnique({
       where: { item_id },
@@ -55,13 +45,7 @@ export class PencilsService {
       },
     });
 
-    const { rgb, ...rest } = pencil;
-
-    const updatedPencil = {
-      ...rest,
-      rgb: pencil.rgb['r'] + ',' + pencil.rgb['g'] + ',' + pencil.rgb['b'],
-    };
-    return plainToInstance(PencilEntity, updatedPencil);
+    return plainToInstance(PencilEntity, pencil);
   }
 
   async update(item_id: number, updatePencilDto: UpdatePencilDto) {
@@ -77,13 +61,7 @@ export class PencilsService {
         },
       });
 
-      const { rgb, ...rest } = pencil;
-
-      const updatedPencil = {
-        ...rest,
-        rgb: pencil.rgb['r'] + ',' + pencil.rgb['g'] + ',' + pencil.rgb['b'],
-      };
-      return plainToInstance(PencilEntity, updatedPencil);
+      return plainToInstance(PencilEntity, pencil);
     } catch (err) {
       console.log(err);
     }

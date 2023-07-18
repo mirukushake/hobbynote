@@ -36,5 +36,5 @@ export class CreateEmbroideryDesignDto {
 
   @IsOptional()
   @IsString()
-  status_id?: string;
+  status_id?: string | null;
 }

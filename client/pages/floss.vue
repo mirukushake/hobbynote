@@ -74,7 +74,9 @@
             >
               <div
                 class="col-2 border-round-left border-right-1 surface-border"
-                :style="'background-color: rgb(' + slotProps.data.rgb + ' )'"
+                :style="
+                  'background-color: rgb(' + slotProps.data.background + ' )'
+                "
               ></div>
               <div class="col-10">
                 <div class="flex align-items-center justify-content-between">
@@ -186,7 +188,7 @@ interface Floss {
   brand: Brand
   order: number
   color: number
-  rgb: string
+  background: string
   inv_qty: number
   wish_qty: number
 }

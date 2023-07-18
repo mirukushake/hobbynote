@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  UseInterceptors,
+  ClassSerializerInterceptor,
 } from '@nestjs/common';
 import { PencilsService } from './pencils.service';
 import { CreatePencilDto } from './dto/create-pencil.dto';
@@ -21,16 +23,19 @@ export class PencilsController {
   }
 
   @Get()
+  @UseInterceptors(ClassSerializerInterceptor)
   findAll() {
     return this.PencilsService.findAll();
   }
 
   @Get(':id')
+  @UseInterceptors(ClassSerializerInterceptor)
   findOne(@Param('id') id: string) {
     return this.PencilsService.findOne(+id);
   }
 
   @Patch(':id')
+  @UseInterceptors(ClassSerializerInterceptor)
   update(@Param('id') id: string, @Body() updatePencilDto: UpdatePencilDto) {
     return this.PencilsService.update(+id, updatePencilDto);
   }

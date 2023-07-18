@@ -126,7 +126,7 @@
               <div class="flex align-options-center">
                 <span
                   :style="{
-                    'background-color': `rgb(${slotProps.option.rgb})`,
+                    'background-color': `rgb(${slotProps.option.background})`,
                     width: '1.25rem',
                     height: '1.25rem',
                     'margin-right': '0.5rem',
@@ -199,7 +199,7 @@ const { data: floss }: any = await useFetch<Floss[]>("/api/floss")
 const flossList: any = computed(() => {
   return floss.value.map((f: any) => ({
     label: `${f.brand.brand_name.en} ${f.code}`,
-    rgb: f.rgb,
+    background: f.background,
     value: f.item_id,
   }))
 })
@@ -403,6 +403,7 @@ interface Floss {
   rgb: string
   inv_qty: number
   wish_qty: number
+  background: string
 }
 
 interface Brand {

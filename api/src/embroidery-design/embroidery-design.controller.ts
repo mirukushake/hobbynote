@@ -8,6 +8,7 @@ import {
   Delete,
   UseInterceptors,
   UploadedFiles,
+  ClassSerializerInterceptor,
 } from '@nestjs/common';
 import {
   FileFieldsInterceptor,
@@ -57,11 +58,13 @@ export class EmbroideryDesignController {
   }
 
   @Get()
+  @UseInterceptors(ClassSerializerInterceptor)
   findAll() {
     return this.embroideryDesignService.findAll();
   }
 
   @Get(':id')
+  @UseInterceptors(ClassSerializerInterceptor)
   findOne(@Param('id') id: string) {
     return this.embroideryDesignService.findOne(+id);
   }

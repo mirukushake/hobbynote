@@ -94,7 +94,7 @@ model Pencil {
 model Pigment {
   id          Int                 @id @default(dbgenerated("unique_random_id(8, 'pigments'::text, 'id'::text)"))
   name        String              @unique(map: "pigments_name_idx")
-  watercolors WatercolorPigment[]
+  watercolors Watercolor[]
 
   @@map("pigments")
 }
@@ -123,19 +123,9 @@ model EmbroideryDesign {
   created        DateTime                @default(now()) @db.Timestamp(6)
   updated        DateTime?               @db.Timestamp(6)
   status         Status?                 @relation("embroidery_design_statusTostatus", fields: [status_id], references: [id], onDelete: Cascade, map: "embroidery_design_status_fkey")
-  floss          EmbroideryDesignFloss[]
+  floss          Floss[]
 
   @@map("embroidery_design")
-}
-
-model EmbroideryDesignFloss {
-  design_id         Int
-  floss_id          Int
-  embroidery_design EmbroideryDesign @relation(fields: [design_id], references: [id], onDelete: Cascade)
-  floss             Floss            @relation(fields: [floss_id], references: [item_id], onDelete: Cascade)
-
-  @@id([design_id, floss_id])
-  @@map("embroidery_design_floss")
 }
 
 model Floss {
@@ -148,7 +138,7 @@ model Floss {
   color_id          Int?
   inv_qty           Int                     @default(0)
   wish_qty          Int                     @default(0)
-  embroidery_design EmbroideryDesignFloss[]
+  design   EmbroideryDesign[]
   brand             Brand                   @relation(fields: [brand_id], references: [id], onDelete: Cascade)
   color             Color?                  @relation(fields: [color_id], references: [id], onDelete: Cascade)
   items             Item                    @relation(fields: [item_id], references: [id], onDelete: Cascade)
@@ -166,16 +156,6 @@ model Status {
   @@map("status")
 }
 
-model WatercolorPigment {
-  watercolor_id Int
-  pigment_id    Int
-  pigment       Pigment    @relation(fields: [pigment_id], references: [id], onDelete: Cascade)
-  watercolor    Watercolor @relation(fields: [watercolor_id], references: [item_id], onDelete: Cascade)
-
-  @@id([watercolor_id, pigment_id])
-  @@map("watercolor_pigment")
-}
-
 model Watercolor {
   item_id    Int                 @id
   brand_id   Int
@@ -188,7 +168,7 @@ model Watercolor {
   order      Int?
   inv_qty    Int                 @default(0)
   wish_qty   Int                 @default(0)
-  pigments   WatercolorPigment[]
+  pigments   Pigment[]
   brands     Brand               @relation(fields: [brand_id], references: [id], onDelete: Cascade)
   colors     Color?              @relation(fields: [color_id], references: [id], onDelete: Cascade)
 

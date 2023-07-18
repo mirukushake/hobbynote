@@ -1,4 +1,4 @@
-import { Exclude } from 'class-transformer';
+import { Exclude, Expose } from 'class-transformer';
 import { Brand } from 'src/common/entities/brand.entity';
 import { Color } from 'src/common/entities/color.entity';
 import { Pencil } from '@prisma/client';
@@ -10,7 +10,7 @@ export class PencilEntity implements Pencil {
   brand: Brand;
   order: number;
   color: Color;
-  rgb: string;
+  rgb: any;
   inv_qty: number;
   wish_qty: number;
 
@@ -22,4 +22,9 @@ export class PencilEntity implements Pencil {
 
   @Exclude()
   color_id: number | null;
+
+  @Expose()
+  get background(): string {
+    return `${this.rgb.r},${this.rgb.g},${this.rgb.b}`;
+  }
 }
