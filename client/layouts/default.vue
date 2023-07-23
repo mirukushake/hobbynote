@@ -39,7 +39,7 @@ const menuItems = ref([
     ],
   },
   {
-    label: "Projects",
+    label: "Patterns",
     items: [
       { label: "Embroidery", to: "/embroidery" },
       { label: "Sewing", to: "/sewing" },

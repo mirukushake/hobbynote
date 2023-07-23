@@ -41,7 +41,14 @@ export class EmbroideryDesignService {
 
     if (design) {
       const list = await this.prisma.embroideryDesign.findMany({
-        include: { status: true, floss: true },
+        include: {
+          status: true,
+          floss: {
+            include: {
+              brand: true,
+            },
+          },
+        },
       });
       return list;
     }
@@ -49,7 +56,7 @@ export class EmbroideryDesignService {
 
   async findAll() {
     const designs = await this.prisma.embroideryDesign.findMany({
-      include: { status: true, floss: true },
+      include: { status: true, floss: { include: { brand: true } } },
     });
 
     return plainToInstance(DesignEntity, designs, {

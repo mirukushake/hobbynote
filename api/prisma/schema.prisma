@@ -99,18 +99,6 @@ model Pigment {
   @@map("pigments")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
-model temp_pencils {
-  code        String?
-  brand_id    Int?
-  rgb         Json?
-  color_id    Int?
-  order       Int?
-  pencil_name Json?
-
-  @@ignore
-}
-
 model EmbroideryDesign {
   id             Int                     @id @default(dbgenerated("unique_random_id(8, 'embroidery_design'::text, 'id'::text)"))
   title          String?
@@ -142,6 +130,8 @@ model Floss {
   brand             Brand                   @relation(fields: [brand_id], references: [id], onDelete: Cascade)
   color             Color?                  @relation(fields: [color_id], references: [id], onDelete: Cascade)
   items             Item                    @relation(fields: [item_id], references: [id], onDelete: Cascade)
+  alternatives Floss[]  @relation("flossAlternatives")
+  alternative_to Floss[] @relation("flossAlternatives")
 
   @@map("floss")
 }

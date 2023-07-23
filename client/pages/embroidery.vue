@@ -3,8 +3,11 @@
   <div class="flex flex-column">
     <DataView :value="data" layout="grid" data-key="id" paginator :rows="30">
       <template #grid="slotProps">
-        <div class="flex col-3">
-          <Card class="w-full m-2">
+        <div class="flex flex-wrap col-12 md:col-3">
+          <Card
+            class="w-full m-2 cursor-pointer hover:surface-50"
+            @click="createDialog = true"
+          >
             <template #header>
               <div
                 :style="{
@@ -31,7 +34,7 @@
             <template #content>
               <div class="mb-3">
                 <div class="gallerymeta">Pattern</div>
-                <div c>
+                <div>
                   <Image
                     v-if="slotProps.data.design_image"
                     :src="`http://localhost:4000/images/${slotProps.data.design_image}`"

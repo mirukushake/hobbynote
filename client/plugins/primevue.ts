@@ -24,6 +24,8 @@ import Textarea from "primevue/textarea"
 import SelectButton from "primevue/selectbutton"
 // import Galleria from "primevue/galleria"
 import AutoComplete from "primevue/autocomplete"
+import Chip from "primevue/chip"
+import OverlayPanel from "primevue/overlaypanel"
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: false })
@@ -50,5 +52,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Textarea", Textarea)
   nuxtApp.vueApp.component("SelectButton", SelectButton)
   nuxtApp.vueApp.component("AutoComplete", AutoComplete)
+  nuxtApp.vueApp.component("Chip", Chip)
+  nuxtApp.vueApp.component("OverlayPanel", OverlayPanel)
   // nuxtApp.vueApp.component("Galleria", Galleria)
 })
