@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
+import { useFlossStore } from "~/store/store"
 const menuItems = ref([
   {
     label: "Arts",
@@ -52,4 +53,7 @@ const menuItems = ref([
 ])
 
 const visible = ref(false)
+const { getFloss } = useFlossStore()
+
+getFloss()
 </script>

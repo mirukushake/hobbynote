@@ -64,8 +64,13 @@ export class EmbroideryDesignService {
     });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} embroideryDesign`;
+  async findOne(id: number) {
+    const design = await this.prisma.embroideryDesign.findUnique({
+      where: { id },
+      include: { status: true, floss: { include: { brand: true } } },
+    });
+
+    return plainToInstance(DesignEntity, design);
   }
 
   update(id: number, updateEmbroideryDesignDto: UpdateEmbroideryDesignDto) {

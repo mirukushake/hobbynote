@@ -35,6 +35,7 @@ export class FlossController {
   }
 
   @Patch(':id')
+  @UseInterceptors(ClassSerializerInterceptor)
   update(@Param('id') id: string, @Body() updateFlossDto: UpdateFlossDto) {
     return this.flossService.update(+id, updateFlossDto);
   }

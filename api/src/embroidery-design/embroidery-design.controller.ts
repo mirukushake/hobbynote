@@ -65,7 +65,7 @@ export class EmbroideryDesignController {
 
   @Get(':id')
   @UseInterceptors(ClassSerializerInterceptor)
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.embroideryDesignService.findOne(+id);
   }
 

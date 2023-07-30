@@ -10,6 +10,7 @@ import DataViewLayoutOptions from "primevue/dataviewlayoutoptions"
 import SplitButton from "primevue/splitbutton"
 import Panel from "primevue/panel"
 import Dialog from "primevue/dialog"
+import DynamicDialog from "primevue/dynamicdialog"
 import DialogService from "primevue/dialogservice"
 import Checkbox from "primevue/checkbox"
 import Paginator from "primevue/paginator"
@@ -41,6 +42,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("SplitButton", SplitButton)
   nuxtApp.vueApp.component("Panel", Panel)
   nuxtApp.vueApp.component("Dialog", Dialog)
+  nuxtApp.vueApp.component("DynamicDialog", DynamicDialog)
   nuxtApp.vueApp.component("Checkbox", Checkbox)
   nuxtApp.vueApp.component("Paginator", Paginator)
   nuxtApp.vueApp.component("RadioButton", RadioButton)

@@ -6,7 +6,7 @@
         <div class="flex flex-wrap col-12 md:col-3">
           <Card
             class="w-full m-2 cursor-pointer hover:surface-50"
-            @click="createDialog = true"
+            @click="editDesign(slotProps.data.id)"
           >
             <template #header>
               <div
@@ -30,7 +30,9 @@
                   }"
                 /></div
             ></template>
-            <template #title>{{ slotProps.data.title }}</template>
+            <template #title
+              ><span>{{ slotProps.data.title }}</span></template
+            >
             <template #content>
               <div class="mb-3">
                 <div class="gallerymeta">Pattern</div>
@@ -49,7 +51,7 @@
                 <div v-if="slotProps.data.book_title">
                   {{ slotProps.data.book_title }}
                 </div>
-                <div v-else-if="slotProps.data.website">
+                <div v-else-if="slotProps.data.website_url">
                   {{ slotProps.data.website_url }}
                 </div>
                 <div v-else>---</div>
@@ -178,6 +180,23 @@
         <Button label="Create" icon="pi pi-check" autofocus @click="upload" />
       </template>
     </Dialog>
+    <Dialog
+      v-model:visible="editDialog"
+      modal
+      header="Design"
+      :style="{ width: '50vw' }"
+    >
+      <DesignEdit :design="design"></DesignEdit>
+      <!-- <template #footer>
+        <Button
+          label="Cancel"
+          icon="pi pi-times"
+          @click="createDialog = false"
+          text
+        />
+        <Button label="Create" icon="pi pi-check" autofocus @click="upload" />
+      </template> -->
+    </Dialog>
     <div>
       <SpeedDial
         direction="up"
@@ -185,6 +204,8 @@
         :rotate-animation="false"
         @click="createDialog = true"
       />
+
+      <Toast />
     </div>
   </div>
 </template>
@@ -192,20 +213,23 @@
 <script setup lang="ts">
 import { computed, ref, nextTick } from "vue"
 import { useToast } from "primevue/usetoast"
+import { useDialog } from "primevue/usedialog"
+import { storeToRefs } from "pinia"
+import { useFlossStore } from "~/store/store"
+import designEdit from "../components/designEdit.vue"
+import designEditFooter from "../components/designEditFooter.vue"
+
+const flossStore = useFlossStore()
+const { flossList } = storeToRefs(flossStore)
 
 const toast = useToast()
+
+const dialog = useDialog()
 const createDialog = ref(false)
+const editDialog = ref(false)
+const design = ref<any>(null)
 
 const { data }: any = await useFetch<Design[]>("/api/embroidery-design")
-const { data: floss }: any = await useFetch<Floss[]>("/api/floss")
-
-const flossList: any = computed(() => {
-  return floss.value.map((f: any) => ({
-    label: `${f.brand.brand_name.en} ${f.code}`,
-    background: f.background,
-    value: f.item_id,
-  }))
-})
 
 const filteredFlossList = ref<any>([])
 
@@ -353,6 +377,15 @@ const showSuccess = () => {
   })
 }
 
+const toastTest = () => {
+  toast.add({
+    severity: "info",
+    summary: "Info",
+    detail: "Message Content",
+    life: 3000,
+  })
+}
+
 const showError = () => {
   toast.add({
     severity: "error",
@@ -372,7 +405,13 @@ const autocomplete = (event: any) => {
       })
     }
   }, 250)
-  console.log(JSON.stringify(designForm.value.floss))
+}
+
+async function editDesign(id: number) {
+  const { data }: any = await useFetch<Design>(`/api/embroidery-design/${id}`)
+  design.value = data.value
+  editDialog.value = true
+  console.log(data.value)
 }
 
 interface Design {
@@ -383,7 +422,7 @@ interface Design {
   book_title: string
   website_url: string
   notes: string
-  floss: Floss
+  floss: Floss[]
   status: Status
   created: Date
   updated: Date
