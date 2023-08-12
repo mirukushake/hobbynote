@@ -9,11 +9,32 @@ export default defineNuxtConfig({
     transpile: ["primevue"],
   },
   ssr: false,
-  modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt"],
+  modules: [
+    "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+    "@nuxtjs/apollo",
+  ],
+  apollo: {
+    autoImports: true,
+    clients: {
+      default: {
+        httpEndpoint: "/graphql",
+        // httpLinkOptions: {
+        //   fetchOptions: {
+        //     mode: "no-cors",
+        //   },
+        // },
+      },
+    },
+  },
   nitro: {
     devProxy: {
       "/api": {
         target: "http://localhost:4000",
+        changeOrigin: true,
+      },
+      "/graphql": {
+        target: "http://localhost:8055/graphql",
         changeOrigin: true,
       },
     },

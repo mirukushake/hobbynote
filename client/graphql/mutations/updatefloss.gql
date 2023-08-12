@@ -1,0 +1,24 @@
+mutation updateFloss($id: ID!, $input: update_floss_input!) {
+  update_floss_item(id: $id, data: $input) {
+    id
+    brand {
+      id
+      en: translations {
+        brand_name
+      }
+      ja: translations(filter: { languages_code: { code: { _eq: "ja" } } }) {
+        brand_name
+      }
+    }
+    code
+    floss_color
+    colors {
+      colors_id {
+        id
+      }
+    }
+    inv_qty
+    wish_qty
+    order
+  }
+}

@@ -143,6 +143,9 @@
       {{ props.design.notes ? props.design.notes : "---" }}
     </div>
   </div>
+  <div class="mt-2 text-right">
+    <Button label="Edit" icon="far fa-edit" autofocus />
+  </div>
 </template>
 <script setup lang="ts">
 import { ref, PropType } from "vue"

@@ -19,11 +19,11 @@
         >
           <Checkbox
             v-model="brandSelect"
-            :inputId="brand.brand_name.en"
+            :inputId="brand.id"
             name="brand"
             :value="brand.id"
           />
-          <label :for="brand.brand_name.en">{{ brand.brand_name.en }}</label>
+          <label :for="brand">{{ brand.en[0]?.brand_name }}</label>
         </div>
         <div class="flex flex-wrap gap-3">
           <div class="flex align-items-center">
@@ -56,7 +56,7 @@
         </div>
       </Panel>
     </div>
-    <div class="dataview">
+    <div class="dataview" v-if="filteredFloss">
       <DataView
         :value="filteredFloss"
         layout="grid"
@@ -74,14 +74,12 @@
             >
               <div
                 class="col-2 border-round-left border-right-1 surface-border"
-                :style="
-                  'background-color: rgb(' + slotProps.data.background + ' )'
-                "
+                :style="`background-color: ${slotProps.data.floss_color}`"
               ></div>
               <div class="col-10">
                 <div class="flex align-items-center justify-content-between">
                   <div class="">
-                    {{ slotProps.data.brand.brand_name.en }}
+                    {{ slotProps.data.brand?.en[0]?.brand_name }}
                     {{ slotProps.data.code }}
                   </div>
                   <div class="">
@@ -95,7 +93,7 @@
                       }"
                       @click="
                         updateInventory(
-                          slotProps.data.item_id,
+                          slotProps.data.id,
                           slotProps.data.inv_qty
                         )
                       "
@@ -110,7 +108,7 @@
                       }"
                       @click="
                         updateWishlist(
-                          slotProps.data.item_id,
+                          slotProps.data.id,
                           slotProps.data.wish_qty
                         )
                       "
@@ -128,16 +126,19 @@
 
 <script setup lang="ts">
 import { computed, ref, nextTick } from "vue"
+import Floss from "~/graphql/queries/floss.gql"
+import updateFloss from "~/graphql/mutations/updatefloss.gql"
+import { FlossQuery } from "~/types/gql/graphql"
+
+const { data } = await useAsyncQuery<FlossQuery>(Floss)
 
 const search = ref("")
 const brandSelect = ref<number[]>([])
 const owned = ref("")
 
-const { data } = await useFetch<Floss[]>("/api/floss")
-
-const filteredFloss: ComputedRef<Floss[]> = computed(() => {
-  return data
-    .value!.filter(
+const filteredFloss: ComputedRef<any> = computed(() => {
+  return data.value.floss
+    .filter(
       (brand: any) =>
         !brandSelect.value.length || brandSelect.value.includes(brand.brand.id)
     )
@@ -151,56 +152,50 @@ const filteredFloss: ComputedRef<Floss[]> = computed(() => {
 
 const brands = computed(() => {
   const map = new Map(
-    data.value!.map((brand: any) => [brand.brand.id, brand.brand])
+    data.value.floss.map((brand: any) => [brand.brand?.id, brand.brand])
   )
   return [...map.values()]
 })
 
-async function updateInventory(item_id: number, inv_qty: number) {
-  const { data: invdata } = await useFetch<Floss>(`/api/floss//${item_id}`, {
-    body: { inv_qty: inv_qty === 0 ? 1 : 0 },
-    method: "PATCH",
+const { mutate: update, error: updateError } = useMutation(updateFloss)
+
+async function updateInventory(id: string, inv_qty: number) {
+  const obj = data.value.floss.find((obj) => {
+    return obj.id === id
   })
-  const newArray = data.value!.map((p: any) =>
-    p.item_id === item_id ? invdata.value : p
-  )
-  data.value = newArray
+
+  if (obj !== undefined) {
+    obj.inv_qty = inv_qty === 0 ? 1 : 0
+  }
+
+  const newInfo = await update({
+    id: id,
+    input: { inv_qty: inv_qty === 0 ? 1 : 0 },
+  })
+
+  if (!newInfo && obj !== undefined) {
+    obj.inv_qty = inv_qty
+  }
+  console.log(updateError)
 }
 
-async function updateWishlist(item_id: number, wish_qty: number) {
-  const { data: wishdata }: any = await useFetch<Floss>(
-    `/api/floss//${item_id}`,
-    {
-      body: { wish_qty: wish_qty === 0 ? 1 : 0 },
-      method: "PATCH",
-    }
-  )
-  const newArray = data.value!.map((p: any) =>
-    p.item_id === item_id ? wishdata.value : p
-  )
-  data.value = newArray
-}
+async function updateWishlist(id: string, wish_qty: number) {
+  const obj = data.value.floss.find((obj) => {
+    return obj.id === id
+  })
 
-interface Floss {
-  item_id: number
-  code: string
-  floss_name: Name
-  brand: Brand
-  order: number
-  color: number
-  background: string
-  inv_qty: number
-  wish_qty: number
-}
+  if (obj !== undefined) {
+    obj.wish_qty = wish_qty === 0 ? 1 : 0
+  }
 
-interface Brand {
-  id: number
-  country_id: number
-  brand_name: Name
-}
+  const newInfo = await update({
+    id: id,
+    input: { wish_qty: wish_qty === 0 ? 1 : 0 },
+  })
 
-interface Name {
-  en: string
-  ja: string
+  if (!newInfo && obj !== undefined) {
+    obj.wish_qty = wish_qty
+  }
+  console.log(updateError)
 }
 </script>

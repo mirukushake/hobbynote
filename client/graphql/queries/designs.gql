@@ -1,0 +1,62 @@
+query Designs {
+  embroidery_design {
+    id
+    title
+    finished_image {
+      id
+    }
+    design {
+      id
+    }
+    floss {
+      floss_id {
+        id
+        brand {
+          id
+          en: translations(
+            filter: { languages_code: { code: { _eq: "en" } } }
+          ) {
+            brand_name
+          }
+          ja: translations(
+            filter: { languages_code: { code: { _eq: "ja" } } }
+          ) {
+            brand_name
+          }
+        }
+        code
+        floss_color
+        inv_qty
+      }
+    }
+    book_title
+    book_page
+    website_url
+    notes
+    tags
+    date_created
+    date_updated
+  }
+  floss(limit: -1, sort: ["brand.id", "order"]) {
+    id
+    brand {
+      id
+      en: translations(filter: { languages_code: { code: { _eq: "en" } } }) {
+        brand_name
+      }
+      ja: translations(filter: { languages_code: { code: { _eq: "ja" } } }) {
+        brand_name
+      }
+    }
+    code
+    floss_color
+    colors {
+      colors_id {
+        id
+      }
+    }
+    inv_qty
+    wish_qty
+    order
+  }
+}

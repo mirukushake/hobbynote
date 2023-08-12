@@ -42,7 +42,7 @@ const menuItems = ref([
   {
     label: "Patterns",
     items: [
-      { label: "Embroidery", to: "/embroidery" },
+      { label: "Embroidery", to: "/designs" },
       { label: "Sewing", to: "/sewing" },
     ],
   },
@@ -53,7 +53,7 @@ const menuItems = ref([
 ])
 
 const visible = ref(false)
-const { getFloss } = useFlossStore()
+// const { getFloss } = useFlossStore()
 
-getFloss()
+// getFloss()
 </script>

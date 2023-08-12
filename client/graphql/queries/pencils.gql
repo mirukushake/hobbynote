@@ -1,0 +1,16 @@
+query Pencils {
+  pencils(limit: -1, sort: ["brand.id", "order"]) {
+    id
+    code
+    pencil_color
+    brand {
+      id
+      en: translations {
+        brand_name
+      }
+      ja: translations(filter: { languages_code: { code: { _eq: "ja" } } }) {
+        brand_name
+      }
+    }
+  }
+}

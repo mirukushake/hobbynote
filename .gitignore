@@ -9,6 +9,9 @@ dist
 .DS_Store
 docker-compose.yml
 data
+uploads
+database
+api
 
 logs
 *.log

@@ -1,7 +1,13 @@
 <template>
   <h2>Embroidery patterns</h2>
   <div class="flex flex-column">
-    <DataView :value="data" layout="grid" data-key="id" paginator :rows="30">
+    <DataView
+      :value="data.embroidery_design"
+      layout="grid"
+      data-key="id"
+      paginator
+      :rows="30"
+    >
       <template #grid="slotProps">
         <div class="flex flex-wrap col-12 md:col-3">
           <Card
@@ -21,7 +27,7 @@
               >
                 <Image
                   v-if="slotProps.data.finished_image"
-                  :src="`http://localhost:4000/images/${slotProps.data.finished_image}`"
+                  :src="`http://localhost:8055/assets/${slotProps.data.finished_image.id}`"
                   preview
                   :image-style="{
                     width: '100%',
@@ -38,8 +44,8 @@
                 <div class="gallerymeta">Pattern</div>
                 <div>
                   <Image
-                    v-if="slotProps.data.design_image"
-                    :src="`http://localhost:4000/images/${slotProps.data.design_image}`"
+                    v-if="slotProps.data.design"
+                    :src="`http://localhost:8055/assets/${slotProps.data.design.id}`"
                     preview
                     width="50"
                   />
@@ -55,14 +61,6 @@
                   {{ slotProps.data.website_url }}
                 </div>
                 <div v-else>---</div>
-              </div>
-              <div class="mb-3">
-                <div class="gallerymeta">Status</div>
-                <div>
-                  {{
-                    slotProps.data.status ? slotProps.data.status.code : "---"
-                  }}
-                </div>
               </div>
               <div class="mb-3">
                 <div class="gallerymeta">Notes</div>
@@ -187,15 +185,6 @@
       :style="{ width: '50vw' }"
     >
       <DesignEdit :design="design"></DesignEdit>
-      <!-- <template #footer>
-        <Button
-          label="Cancel"
-          icon="pi pi-times"
-          @click="createDialog = false"
-          text
-        />
-        <Button label="Create" icon="pi pi-check" autofocus @click="upload" />
-      </template> -->
     </Dialog>
     <div>
       <SpeedDial
@@ -214,13 +203,9 @@
 import { computed, ref, nextTick } from "vue"
 import { useToast } from "primevue/usetoast"
 import { useDialog } from "primevue/usedialog"
-import { storeToRefs } from "pinia"
-import { useFlossStore } from "~/store/store"
 import designEdit from "../components/designEdit.vue"
 import designEditFooter from "../components/designEditFooter.vue"
-
-const flossStore = useFlossStore()
-const { flossList } = storeToRefs(flossStore)
+import Designs from "~/graphql/queries/designs.gql"
 
 const toast = useToast()
 
@@ -229,7 +214,7 @@ const createDialog = ref(false)
 const editDialog = ref(false)
 const design = ref<any>(null)
 
-const { data }: any = await useFetch<Design[]>("/api/embroidery-design")
+const { data } = await useAsyncQuery<any>(Designs)
 
 const filteredFlossList = ref<any>([])
 
@@ -377,15 +362,6 @@ const showSuccess = () => {
   })
 }
 
-const toastTest = () => {
-  toast.add({
-    severity: "info",
-    summary: "Info",
-    detail: "Message Content",
-    life: 3000,
-  })
-}
-
 const showError = () => {
   toast.add({
     severity: "error",
@@ -396,66 +372,21 @@ const showError = () => {
 }
 
 const autocomplete = (event: any) => {
-  setTimeout(() => {
-    if (!event.query.trim().length) {
-      filteredFlossList.value = [...flossList.value]
-    } else {
-      filteredFlossList.value = flossList.value.filter((list: any) => {
-        return list.label.toLowerCase().includes(event.query.toLowerCase())
-      })
-    }
-  }, 250)
+  // setTimeout(() => {
+  //   if (!event.query.trim().length) {
+  //     filteredFlossList.value = [...flossList.value]
+  //   } else {
+  //     filteredFlossList.value = flossList.value.filter((list: any) => {
+  //       return list.label.toLowerCase().includes(event.query.toLowerCase())
+  //     })
+  //   }
+  // }, 250)
 }
 
 async function editDesign(id: number) {
-  const { data }: any = await useFetch<Design>(`/api/embroidery-design/${id}`)
-  design.value = data.value
-  editDialog.value = true
-  console.log(data.value)
-}
-
-interface Design {
-  id: number
-  title: string
-  finished_image: string
-  pattern_image: string
-  book_title: string
-  website_url: string
-  notes: string
-  floss: Floss[]
-  status: Status
-  created: Date
-  updated: Date
-}
-
-interface Status {
-  id: number
-  code: String
-  code_name: Name
-  order: number
-}
-
-interface Floss {
-  item_id: number
-  code: string
-  floss_name: Name
-  brand: Brand
-  order: number
-  color: number
-  rgb: string
-  inv_qty: number
-  wish_qty: number
-  background: string
-}
-
-interface Brand {
-  id: number
-  country_id: number
-  brand_name: Name
-}
-
-interface Name {
-  en: string
-  ja: string
+  // const { data }: any = await useFetch<Design>(`/api/embroidery-design/${id}`)
+  // design.value = data.value
+  // editDialog.value = true
+  // console.log(data.value)
 }
 </script>
