@@ -1,0 +1,6 @@
+id,code,code_name,order
+1,Not started,NULL,1
+2,In progress,NULL,2
+3,On hold,NULL,3
+4,Finished,NULL,4
+5,Abandoned,NULL,5
