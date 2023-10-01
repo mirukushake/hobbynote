@@ -7,10 +7,10 @@
             <template #cover>
               <img
                 alt="example"
-                src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+                :src="`https://storage.googleapis.com/hobbynote/${item.finished_image}`"
               />
             </template>
-            <a-card-meta title="Card title" class="p-4">
+            <a-card-meta :title="item.title" class="p-4">
               <template #description>yo</template>
             </a-card-meta>
           </a-card>
@@ -18,10 +18,115 @@
       </template>
     </a-list>
   </div>
+  <a-modal
+    v-model:open="modalOpen"
+    title="Add a design"
+    @cancel="closeModal"
+    @ok="testModal"
+    :mask-closable="false"
+  >
+    <a-form
+      layout="vertical"
+      :model="designForm"
+      :rules="formRules"
+      ref="formRef"
+    >
+      <a-form-item label="Design title" required name="title">
+        <a-input v-model:value="designForm.title" />
+      </a-form-item>
+      <a-form-item label="Finished image" name="finishedimage">
+        <a-upload
+          v-model:file-list="finishedFileList"
+          name="finishedimage"
+          list-type="picture"
+          accept=".png, .jpg, .jpeg"
+          @preview="handleFinishedPreview"
+          @change="handleFinishedImageChange"
+          @remove="handleFinishedImageRemove"
+        >
+          <a-button> Upload </a-button>
+        </a-upload>
+      </a-form-item>
+      <a-modal
+        :open="finishedImagePreview"
+        title="Finished Design"
+        :footer="null"
+        @cancel="closeFinishedPreview"
+        width="80%"
+      >
+        <img alt="example" style="width: 100%" :src="finishedImageURL" />
+      </a-modal>
+      <a-form-item label="Design image" name="designimage">
+        <a-upload
+          v-model:file-list="designFileList"
+          name="designimage"
+          list-type="picture"
+          accept=".png, .jpg, .jpeg, .pdf"
+          @preview="handleDesignPreview"
+          @change="handleDesignImageChange"
+          @remove="handleDesignImageRemove"
+        >
+          <a-button> Upload </a-button>
+        </a-upload>
+      </a-form-item>
+      <a-modal
+        :open="designImagePreview"
+        title="Design image"
+        :footer="null"
+        @cancel="closeDesignPreview"
+        width="80%"
+      >
+        <img alt="example" style="width: 100%" :src="finishedImageURL" />
+      </a-modal>
+      <a-form-item label="Book title" name="booktitle">
+        <a-input v-model:value="designForm.booktitle" />
+      </a-form-item>
+      <a-form-item label="Website" name="websiteurl">
+        <a-input v-model:value="designForm.websiteurl" placeholder="http://" />
+      </a-form-item>
+      <a-form-item label="Floss">
+        <a-select
+          v-model:value="designForm.floss"
+          mode="multiple"
+          style="width: 100%"
+          placeholder="Please select"
+          :options="flossList"
+          :filter-option="filterOption"
+        >
+          <template #option="{ value: value, label, background }">
+            <span
+              class="w-4 inline-block"
+              :style="`background-color: rgb(${background})`"
+              >&nbsp;</span
+            >
+            &nbsp;&nbsp;{{ label }}
+          </template>
+        </a-select></a-form-item
+      >
+      <a-form-item label="Status">
+        <a-radio-group
+          v-model:value="designForm.status"
+          option-type="button"
+          :options="status"
+        />
+      </a-form-item>
+      <a-form-item label="Notes">
+        <a-textarea v-model:value="designForm.notes" />
+      </a-form-item>
+    </a-form>
+  </a-modal>
+  <a-float-button @click="showModal">
+    <template #icon>
+      <Icon name="tabler:plus" />
+    </template>
+  </a-float-button>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, nextTick } from "vue"
+import { computed, ref, reactive } from "vue"
+import type { Rule } from "ant-design-vue/es/form"
+import type { FormInstance } from "ant-design-vue"
+import { message } from "ant-design-vue"
 
 definePageMeta({
   title: "Embroidery Designs",
@@ -39,24 +144,46 @@ const flossList: any = computed(() => {
   }))
 })
 
-const filteredFlossList = ref<any>([])
-
 const search = ref("")
-const designForm = ref({
-  title: "",
-  floss: [],
-  booktitle: undefined,
-  websiteurl: undefined,
-  notes: undefined,
-  status: null as number | null,
-})
+const modalOpen = ref<boolean>(false)
+const showModal = () => {
+  modalOpen.value = true
+}
+
+const closeModal = () => {
+  modalOpen.value = false
+}
+
+const formRef = ref<FormInstance>()
+const designForm = reactive(initialForm())
+const images = ref({ finished_image: null, pattern_image: null })
+
+const formRules: Record<string, Rule[]> = {
+  title: [
+    { required: true, message: "Please enter design title", trigger: "change" },
+    {
+      min: 3,
+      max: 30,
+      message: "Length should be 3 to 30 characters",
+      trigger: "blur",
+    },
+  ],
+}
+
+const filterOption = (input: string, option: any) => {
+  return option.label.toLowerCase().indexOf(input.toLowerCase()) >= 0
+}
+
+const finishedFileList = ref([])
+const designFileList = ref([])
+const loading = ref<boolean>(false)
 
 const finishedImage = ref(null)
 const finishedImageURL = ref("")
-const finishedImageName = ref(null)
+const finishedImagePreview = ref(false)
 const designImage = ref(null)
-const designImageName = ref(null)
 const designImageURL = ref("")
+const designImagePreview = ref(false)
 const status = [
   {
     label: "No status",
@@ -84,34 +211,75 @@ const status = [
   },
 ]
 
+// form functions
+const handleFinishedImageChange = async (file: any) => {
+  const reader = new FileReader()
+  finishedImage.value = file.file.originFileObj
+  reader.readAsDataURL(file.file.originFileObj)
+  reader.onload = async (e: any) => {
+    finishedImageURL.value = e.target?.result
+  }
+}
+const handleFinishedImageRemove = () => {
+  finishedImage.value = null
+  finishedImageURL.value = ""
+}
+const handleFinishedPreview = () => {
+  finishedImagePreview.value = true
+}
+const closeFinishedPreview = () => {
+  finishedImagePreview.value = false
+}
+
+const handleDesignImageChange = async (file: any) => {
+  const reader = new FileReader()
+  designImage.value = file.file.originFileObj
+  reader.readAsDataURL(file.file.originFileObj)
+  reader.onload = async (e: any) => {
+    designImageURL.value = e.target?.result
+  }
+}
+const handleDesignImageRemove = () => {
+  designImage.value = null
+  designImageURL.value = ""
+}
+const handleDesignPreview = () => {
+  designImagePreview.value = true
+}
+const closeDesignPreview = () => {
+  designImagePreview.value = false
+}
+
 const uploadLoad = ref(false)
 
-async function upload() {
+async function testModal() {
+  //   if (newDesigns) {
+  //     await data.value.unshift(newDesigns)
+  //     Object.assign(designForm, initialForm())
+  //     images.value = { finished_image: null, pattern_image: null }
+  //     modalOpen.value = false
+  //   }
   uploadLoad.value = true
   const formData = new FormData()
-  formData.append("title", designForm.value.title)
-  formData.append("floss", JSON.stringify(designForm.value.floss))
-  if (designForm.value.booktitle) {
-    formData.append("booktitle", designForm.value.booktitle)
+  formData.append("title", designForm.title)
+  formData.append("floss", JSON.stringify(designForm.floss))
+  if (designForm.booktitle) {
+    formData.append("booktitle", designForm.booktitle)
   }
-  if (designForm.value.websiteurl) {
-    formData.append("websiteurl", designForm.value.websiteurl)
+  if (designForm.websiteurl) {
+    formData.append("websiteurl", designForm.websiteurl)
   }
-  if (designForm.value.notes) {
-    formData.append("notes", designForm.value.notes)
+  if (designForm.notes) {
+    formData.append("notes", designForm.notes)
   }
-  if (designForm.value.status) {
-    formData.append("status_id", designForm.value.status.toString())
+  if (designForm.status) {
+    formData.append("status_id", designForm.status.toString())
   }
-  if (finishedImage.value && finishedImageName.value) {
-    formData.append(
-      "finishedimage",
-      finishedImage.value,
-      finishedImageName.value
-    )
+  if (finishedImage.value) {
+    formData.append("finishedimage", finishedImage.value)
   }
-  if (designImage.value && designImageName.value) {
-    formData.append("designimage", designImage.value, designImageName.value)
+  if (designImage.value) {
+    formData.append("designimage", designImage.value)
   }
   try {
     const { data: newList, error }: any = await useFetch(
@@ -125,66 +293,30 @@ async function upload() {
     if (newList) {
       data.value = newList
       uploadLoad.value = false
-      designForm.value = {
-        title: "",
-        floss: [],
-        booktitle: undefined,
-        websiteurl: undefined,
-        notes: undefined,
-        status: null as number | null,
-      }
-
-      clearDesign()
-      clearFinished()
+      images.value = { finished_image: null, pattern_image: null }
+      Object.assign(designForm, initialForm())
+      designImage.value = null
+      designImageURL.value = ""
+      finishedImage.value = null
+      finishedImageURL.value = ""
+      finishedFileList.value = []
+      designFileList.value = []
+      message.success("Design added!", 10)
     }
   } catch (error) {
     console.log(error)
   }
 }
 
-const uploadFinished = async (event: any) => {
-  const file = event.files[0]
-  finishedImage.value = event.files[0]
-  const reader = new FileReader()
-  reader.onload = async (e: any) => {
-    finishedImageURL.value = e.target?.result
-    finishedImageName.value = file.name
+function initialForm() {
+  return {
+    title: "",
+    floss: [],
+    booktitle: undefined,
+    websiteurl: undefined,
+    notes: undefined,
+    status: null as number | null,
   }
-  reader.readAsDataURL(file)
-}
-const uploadDesign = async (event: any) => {
-  const file = event.files[0]
-  designImage.value = event.files[0]
-  const reader = new FileReader()
-  reader.onload = async (e: any) => {
-    designImageURL.value = e.target?.result
-    designImageName.value = file.name
-  }
-  reader.readAsDataURL(file)
-}
-
-const clearFinished = () => {
-  finishedImage.value = null
-  finishedImageName.value = null
-  finishedImageURL.value = ""
-}
-const clearDesign = () => {
-  designImage.value = null
-  designImageName.value = null
-  designImageURL.value = ""
-}
-
-const autocomplete = (event: any) => {
-  setTimeout(() => {
-    if (!event.query.trim().length) {
-      filteredFlossList.value = [...flossList.value]
-    } else {
-      filteredFlossList.value = flossList.value.filter((list: any) => {
-        return list.label.toLowerCase().includes(event.query.toLowerCase())
-      })
-    }
-  }, 250)
-  console.log(JSON.stringify(designForm.value.floss))
 }
 
 interface Design {

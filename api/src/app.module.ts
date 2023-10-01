@@ -7,6 +7,8 @@ import { PencilsModule } from './pencils/pencils.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { FlossModule } from './floss/floss.module';
 import { EmbroideryDesignModule } from './embroidery-design/embroidery-design.module';
+import { MediaModule } from './media/media.module';
+import { StorageModule } from './storage/storage.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { EmbroideryDesignModule } from './embroidery-design/embroidery-design.mo
     }),
     FlossModule,
     EmbroideryDesignModule,
+    MediaModule,
+    StorageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -14,6 +14,28 @@ import { plainToInstance } from 'class-transformer';
 export class EmbroideryDesignService {
   constructor(private prisma: PrismaService) {}
 
+  // async create(createEmbroideryDesignDto: CreateEmbroideryDesignDto) {
+  //   const design = await this.prisma.embroideryDesign.create({
+  //     data: {
+  //       title: createEmbroideryDesignDto.title,
+  //       book_title: createEmbroideryDesignDto.booktitle,
+  //       website_url: createEmbroideryDesignDto.websiteurl,
+  //       notes: createEmbroideryDesignDto.notes,
+  //       status_id: createEmbroideryDesignDto.status_id || null,
+  //       floss: {
+  //         connect: createEmbroideryDesignDto.floss.map((record) => ({
+  //           item_id: record,
+  //         })),
+  //       },
+  //     },
+  //     include: {
+  //       floss: true,
+  //     },
+  //   });
+
+  //   return plainToInstance(DesignEntity, design);
+  // }
+
   async create(files, createEmbroideryDesignDto: CreateEmbroideryDesignDto) {
     const design = await this.prisma.embroideryDesign.create({
       data: {
@@ -29,7 +51,7 @@ export class EmbroideryDesignService {
         floss: {
           connect: JSON.parse(createEmbroideryDesignDto.floss).map(
             (record) => ({
-              item_id: record.value,
+              item_id: record,
             }),
           ),
         },
@@ -73,8 +95,25 @@ export class EmbroideryDesignService {
     return plainToInstance(DesignEntity, design);
   }
 
-  update(id: number, updateEmbroideryDesignDto: UpdateEmbroideryDesignDto) {
-    return `This action updates a #${id} embroideryDesign`;
+  async update(
+    id: number,
+    UpdateEmbroideryDesignDto: UpdateEmbroideryDesignDto,
+  ) {
+    try {
+      console.log(UpdateEmbroideryDesignDto);
+
+      const design = await this.prisma.embroideryDesign.update({
+        where: { id: id },
+        data: UpdateEmbroideryDesignDto,
+        include: {
+          floss: true,
+        },
+      });
+
+      return plainToInstance(DesignEntity, design);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   remove(id: number) {

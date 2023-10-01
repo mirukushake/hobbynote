@@ -20,6 +20,8 @@ import { UpdateEmbroideryDesignDto } from './dto/update-embroidery-design.dto';
 import { finished } from 'stream';
 import { diskStorage } from 'multer';
 import { editFileName, imageFileFilter } from 'src/common/file-upload.utils';
+import MulterGoogleCloudStorage from 'multer-cloud-storage';
+import * as path from 'path';
 
 @Controller('embroidery-design')
 export class EmbroideryDesignController {
@@ -35,20 +37,19 @@ export class EmbroideryDesignController {
         { name: 'designimage', maxCount: 1 },
       ],
       {
-        storage: diskStorage({
-          destination: './public/images',
+        storage: new MulterGoogleCloudStorage({
+          projectId: process.env.PROJECT_ID,
+          keyFilename: path.join(__dirname, '../../gcloud-info.json'),
+          bucket: process.env.STORAGE_MEDIA_BUCKET,
+          uniformBucketLevelAccess: true,
           filename: editFileName,
         }),
-        fileFilter: imageFileFilter,
       },
     ),
   )
   create(
     @UploadedFiles()
-    files: {
-      finishedimage?: Express.Multer.File[];
-      designimage?: Express.Multer.File[];
-    },
+    files,
     @Body() createEmbroideryDesignDto: CreateEmbroideryDesignDto,
   ) {
     return this.embroideryDesignService.create(
@@ -56,6 +57,11 @@ export class EmbroideryDesignController {
       createEmbroideryDesignDto,
     );
   }
+
+  // @Post()
+  // create(@Body() createEmbroideryDesignDto: CreateEmbroideryDesignDto) {
+  //   return this.embroideryDesignService.create(files, createEmbroideryDesignDto);
+  // }
 
   @Get()
   @UseInterceptors(ClassSerializerInterceptor)
