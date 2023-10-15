@@ -95,7 +95,9 @@ model Pencil {
 
 model Pigment {
   id          Int          @id @default(dbgenerated("unique_random_id(8, 'pigments'::text, 'id'::text)"))
-  name        String       @unique(map: "pigments_name_idx")
+  code        String       @unique(map: "pigments_code_idx")
+  name        String?       
+  order       Int?         @unique(map: "pigments_order_idx")
   watercolors Watercolor[] @relation("PigmentToWatercolor")
 
   @@map("pigments")
@@ -158,10 +160,11 @@ model Watercolor {
   color_id   Int?
   sizes      Int[]
   order      Int?
+  grade      String?
   inv_qty    Int       @default(0)
   wish_qty   Int       @default(0)
-  brands     Brand     @relation(fields: [brand_id], references: [id], onDelete: Cascade)
-  colors     Color?    @relation(fields: [color_id], references: [id], onDelete: Cascade)
+  brand     Brand     @relation(fields: [brand_id], references: [id], onDelete: Cascade)
+  color     Color?    @relation(fields: [color_id], references: [id], onDelete: Cascade)
   pigments   Pigment[] @relation("PigmentToWatercolor")
 
   @@map("watercolors")

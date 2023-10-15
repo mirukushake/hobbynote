@@ -3,11 +3,12 @@
     <a-list :grid="{ gutter: 1, column: 4 }" :data-source="data">
       <template #renderItem="{ item }">
         <a-list-item>
-          <a-card hoverable style="width: 240px" class="rounded-xl">
+          <a-card hoverable style="width: 240px" class="design-card rounded-xl">
             <template #cover>
               <img
                 alt="example"
                 :src="`https://storage.googleapis.com/hobbynote/${item.finished_image}`"
+                class="object-cover h-32"
               />
             </template>
             <a-card-meta :title="item.title" class="p-4">

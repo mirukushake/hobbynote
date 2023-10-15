@@ -9,6 +9,7 @@ import { FlossModule } from './floss/floss.module';
 import { EmbroideryDesignModule } from './embroidery-design/embroidery-design.module';
 import { MediaModule } from './media/media.module';
 import { StorageModule } from './storage/storage.module';
+import { WatercolorModule } from './watercolor/watercolor.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { StorageModule } from './storage/storage.module';
     EmbroideryDesignModule,
     MediaModule,
     StorageModule,
+    WatercolorModule,
   ],
   controllers: [AppController],
   providers: [AppService],

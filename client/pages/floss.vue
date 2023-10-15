@@ -53,6 +53,7 @@
 
 <script setup lang="ts">
 import { computed, ref, nextTick } from "vue"
+import { Floss, Brand, Name } from "@/models/models"
 
 const { data } = await useFetch<Floss[]>("/api/floss")
 
@@ -92,7 +93,7 @@ const brands = computed(() => {
 })
 
 async function updateInventory(item_id: number, inv_qty: number) {
-  const { data: invdata } = await useFetch<Floss>(`/api/floss//${item_id}`, {
+  const { data: invdata } = await useFetch<Floss>(`/api/floss/${item_id}`, {
     body: { inv_qty: inv_qty === 0 ? 1 : 0 },
     method: "PATCH",
   })
@@ -104,7 +105,7 @@ async function updateInventory(item_id: number, inv_qty: number) {
 
 async function updateWishlist(item_id: number, wish_qty: number) {
   const { data: wishdata }: any = await useFetch<Floss>(
-    `/api/floss//${item_id}`,
+    `/api/floss/${item_id}`,
     {
       body: { wish_qty: wish_qty === 0 ? 1 : 0 },
       method: "PATCH",
@@ -114,28 +115,5 @@ async function updateWishlist(item_id: number, wish_qty: number) {
     p.item_id === item_id ? wishdata.value : p
   )
   data.value = newArray
-}
-
-interface Floss {
-  item_id: number
-  code: string
-  floss_name: Name
-  brand: Brand
-  order: number
-  color: number
-  background: string
-  inv_qty: number
-  wish_qty: number
-}
-
-interface Brand {
-  id: number
-  country_id: number
-  brand_name: Name
-}
-
-interface Name {
-  en: string
-  ja: string
 }
 </script>
