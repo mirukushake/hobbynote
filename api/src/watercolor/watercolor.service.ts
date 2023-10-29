@@ -33,12 +33,44 @@ export class WatercolorService {
     return plainToInstance(WatercolorEntity, watercolors);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} watercolor`;
+  async findOne(item_id: number) {
+    const watercolor = await this.prisma.watercolor.findUnique({
+      where: { item_id },
+      include: {
+        brand: true,
+        pigments: true,
+        color: true,
+      },
+    });
+
+    return plainToInstance(WatercolorEntity, watercolor);
   }
 
-  update(id: number, updateWatercolorDto: UpdateWatercolorDto) {
-    return `This action updates a #${id} watercolor`;
+  async update(item_id: number, updateWatercolorDto: UpdateWatercolorDto) {
+    try {
+      const watercolor = await this.prisma.watercolor.update({
+        where: { item_id: item_id },
+        data: {
+          inv_qty: updateWatercolorDto.inv_qty,
+          wish_qty: updateWatercolorDto.wish_qty,
+          pigments: updateWatercolorDto.pigments && {
+            set: [],
+            connect: updateWatercolorDto.pigments.map((record) => ({
+              id: record,
+            })),
+          },
+        },
+        include: {
+          brand: true,
+          pigments: true,
+          color: true,
+        },
+      });
+
+      return plainToInstance(WatercolorEntity, watercolor);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   remove(id: number) {

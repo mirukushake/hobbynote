@@ -1,0 +1,484 @@
+item_id,brand_id,code,swatch,series_id,paint_name,color_id,sizes,order,inv_qty,wish_qty,grade
+988489,5782615,Cadmium Red Medium Hue,NULL,NULL,NULL,NULL,NULL,33,0,0,3
+1249873,45853241,113,W113.jpg,NULL,"{""en"": """", ""ja"": ""マース バイオレット""}",NULL,NULL,85,0,0,B
+1358471,5782615,Lunar Earth,NULL,NULL,NULL,NULL,NULL,127,0,0,
+1826329,5782615,English Red Earth,NULL,NULL,NULL,NULL,NULL,139,0,0,
+2021096,45853241,06,W006.jpg,NULL,"{""en"": """", ""ja"": ""ピロ－ル ルビン""}",NULL,NULL,6,0,1,A
+2039441,45853241,103,W103.jpg,NULL,"{""en"": """", ""ja"": ""ロイヤル ブルー""}",NULL,NULL,74,0,0,C
+2599328,5782615,Permanent Brown,NULL,NULL,NULL,NULL,NULL,147,0,0,
+2683059,45853241,102,W102.jpg,NULL,"{""en"": """", ""ja"": ""マリン ブルー""}",NULL,NULL,60,0,0,C
+2883697,56303468,178,NULL,NULL,"{""en"": """", ""ja"": ""コバルトブルー""}",NULL,NULL,43,0,0,4
+2896236,45853241,191,W191.jpg,NULL,"{""en"": """", ""ja"": ""シルバー""}",NULL,NULL,108,0,0,C
+2903427,22748426,042,wc042.jpg,NULL,"{""en"": """", ""ja"": ""ラベンダーブルー""}",NULL,NULL,19,0,0,B
+3047385,22748426,246,wc246.jpg,NULL,"{""en"": """", ""ja"": ""グレーオブグレー""}",NULL,NULL,83,0,0,A
+3106950,5782615,Lunar Red Rock,NULL,NULL,NULL,NULL,NULL,144,0,0,
+3577010,22748426,201,wc201.jpg,NULL,"{""en"": """", ""ja"": ""ライトレッド""}",NULL,NULL,72,0,0,A
+3586677,56303468,672,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーバイオレット""}",NULL,NULL,37,0,0,2
+3604515,5782615,Ivory Black,NULL,NULL,NULL,NULL,NULL,173,0,0,
+3900720,5782615,Chromium Green Oxide,NULL,NULL,NULL,NULL,NULL,102,0,0,
+5004423,5782615,Nickel Titanate Yellow,NULL,NULL,NULL,NULL,NULL,2,0,0,
+5071356,22748426,146,wc146.jpg,NULL,"{""en"": """", ""ja"": ""ゴールドイエロー""}",NULL,NULL,53,0,0,B
+5329563,56303468,719,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーグリーン（ブルーシェード）""}",NULL,NULL,55,0,0,1
+5567527,56303468,649,NULL,NULL,"{""en"": """", ""ja"": ""ターナーズイエロー""}",NULL,NULL,10,0,0,3
+5657450,45853241,75,W075.jpg,NULL,"{""en"": """", ""ja"": ""サップ グリーン""}",NULL,NULL,54,0,0,B
+6070893,5782615,Indian Red,NULL,NULL,NULL,NULL,NULL,131,0,0,2
+6090574,5782615,Carmine,NULL,NULL,NULL,NULL,NULL,43,0,0,
+6435686,5782615,Quinacridone Purple,NULL,NULL,NULL,NULL,NULL,63,0,0,
+6649675,5782615,Lunar Black,NULL,NULL,NULL,NULL,NULL,174,0,0,
+6708378,5782615,Burgundy Yellow Ochre,NULL,NULL,NULL,NULL,NULL,116,0,0,
+6759497,56303468,489,NULL,NULL,"{""en"": """", ""ja"": ""パーマネントマゼンタ""}",NULL,NULL,34,0,0,3
+7057253,5782615,Quinophthalone Yellow,NULL,NULL,NULL,NULL,NULL,6,0,0,
+7767266,56303468,907,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムフリーイエローペール""}",NULL,NULL,98,0,0,4
+7867412,5782615,Alvaro’s Caliente Grey,NULL,NULL,NULL,NULL,NULL,169,0,0,
+8016059,56303468,722,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーレモン""}",NULL,NULL,4,0,0,1
+8255141,5782615,Permanent Red Deep,NULL,NULL,NULL,NULL,NULL,37,0,0,
+8375974,45853241,47,W047.jpg,NULL,"{""en"": """", ""ja"": ""ブリリアント オレンジ""}",NULL,NULL,20,0,0,C
+8430152,22748426,035,wc035.jpg,NULL,"{""en"": """", ""ja"": ""モナストラルブルー""}",NULL,NULL,14,0,0,A
+8613491,5782615,English Red Ochre,NULL,NULL,NULL,NULL,NULL,155,0,0,1
+8616340,22748426,115,wc115.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムイエロー ペール［ネオ］""}",NULL,NULL,42,0,0,C
+9276108,5782615,Enviro-Friendly Yellow Iron Oxide,NULL,NULL,NULL,NULL,NULL,123,0,0,
+9486121,45853241,33,W033.jpg,NULL,"{""en"": """", ""ja"": ""レモン イエロー""}",NULL,NULL,36,0,0,A
+9602207,5782615,Anthraquinoid Scarlet,NULL,NULL,NULL,NULL,NULL,32,0,0,3
+9707287,5782615,Quinacridone Sienna,NULL,NULL,NULL,NULL,NULL,135,0,0,
+10342243,5782615,Cerulean Blue Chromium,NULL,NULL,NULL,NULL,NULL,82,0,0,
+10416277,5782615,Hansa Yellow Light,NULL,NULL,NULL,NULL,NULL,4,0,0,
+10446666,45853241,91,W091.jpg,NULL,"{""en"": """", ""ja"": ""コバルト ブルー ヒュー""}",NULL,NULL,70,0,0,A
+10452813,22748426,029,wc029.jpg,NULL,"{""en"": """", ""ja"": ""セルリアンブルー［ネオ］""}",NULL,NULL,10,0,0,A
+10489101,56303468,725,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーレッドディープ""}",NULL,NULL,26,0,0,1
+10601940,5782615,Mayan Orange,NULL,NULL,NULL,NULL,NULL,28,0,0,
+10689029,5782615,Olive Green,NULL,NULL,NULL,NULL,NULL,109,0,0,
+10920480,5782615,Bismuth Vanadate Yellow,NULL,NULL,NULL,NULL,NULL,3,0,0,2
+11200203,45853241,35,W035.jpg,NULL,"{""en"": """", ""ja"": ""パーマネント イエロー レモン""}",NULL,NULL,35,0,0,A
+11436614,22748426,022,wc022.jpg,NULL,"{""en"": """", ""ja"": ""ウルトラマリン ライト""}",NULL,NULL,8,0,0,A
+12502432,22748426,208,wc208.jpg,NULL,"{""en"": """", ""ja"": ""ローアンバー""}",NULL,NULL,76,0,0,A
+12582736,5782615,Mayan Red,NULL,NULL,NULL,NULL,NULL,40,0,0,
+12638527,22748426,210,wc210.jpg,NULL,"{""en"": """", ""ja"": ""バンダイクブラウン""}",NULL,NULL,78,0,0,A
+12749438,56303468,321,NULL,NULL,"{""en"": """", ""ja"": ""インダンスレンブルー""}",NULL,NULL,39,0,0,3
+13128611,5782615,Mars Yellow,NULL,NULL,NULL,NULL,NULL,118,0,0,2
+13199417,22748426,167,wc167.jpg,NULL,"{""en"": """", ""ja"": ""バーミリオン［ネオ］""}",NULL,NULL,58,0,0,A
+13783166,45853241,96,W096.jpg,NULL,"{""en"": """", ""ja"": ""コンポーズ ブルー""}",NULL,NULL,66,0,0,A
+14510882,5782615,Neutral Tint,NULL,NULL,NULL,NULL,NULL,162,0,0,
+14948034,22748426,275,wc275.jpg,NULL,"{""en"": """", ""ja"": ""パールゴールド""}",NULL,NULL,89,0,0,C
+15500898,45853241,117,W117.jpg,NULL,"{""en"": """", ""ja"": ""ライラック""}",NULL,NULL,80,0,0,A
+15543305,56303468,726,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーレッド""}",NULL,NULL,23,0,0,1
+16047295,5782615,Carbazole Violet,NULL,NULL,NULL,NULL,NULL,65,0,0,
+17027144,5782615,Aussie Red Gold,NULL,NULL,NULL,NULL,NULL,20,0,0,2
+17192240,45853241,140,W140.jpg,NULL,"{""en"": """", ""ja"": ""ランプ ブラック""}",NULL,NULL,99,0,0,A
+17242724,45853241,36,W036.jpg,NULL,"{""en"": """", ""ja"": ""パーマネント イエロー ライト""}",NULL,NULL,33,0,0,A
+17249008,5782615,Chinese White,NULL,NULL,NULL,NULL,NULL,175,0,0,
+17351675,5782615,Cobalt Violet,NULL,NULL,NULL,NULL,NULL,58,0,0,
+17450655,45853241,22,W022.jpg,NULL,"{""en"": """", ""ja"": ""スカーレット レーキ""}",NULL,NULL,10,0,0,B
+17567401,5782615,Prussian Green,NULL,NULL,NULL,NULL,NULL,106,0,0,
+17639330,56303468,381,NULL,NULL,"{""en"": """", ""ja"": ""マグネシウムブラウン""}",NULL,NULL,74,0,0,1
+17660715,45853241,151,W151.jpg,NULL,"{""en"": """", ""ja"": ""イエロー グレイ""}",NULL,NULL,94,0,0,A
+17693562,45853241,78,W078.jpg,NULL,"{""en"": """", ""ja"": ""バンブー グリーン""}",NULL,NULL,48,0,0,B
+17955690,5782615,Permanent Green Light,NULL,NULL,NULL,NULL,NULL,96,0,0,
+17990513,56303468,479,NULL,NULL,"{""en"": """", ""ja"": ""パーマネントカーマイン""}",NULL,NULL,29,0,0,3
+18116469,22748426,164,wc164.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムレッド ライト［ネオ］""}",NULL,NULL,56,0,0,C
+18120291,22748426,162,wc162.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムレッド ディープ［ネオ］""}",NULL,NULL,54,0,0,C
+18148048,5782615,Venetian Red,NULL,NULL,NULL,NULL,NULL,132,0,0,
+18381858,22748426,041,wc041.jpg,NULL,"{""en"": """", ""ja"": ""アクアブルー""}",NULL,NULL,18,0,0,B
+18440443,45853241,49,W049.jpg,NULL,"{""en"": """", ""ja"": ""イソインドリノン イエロー ディープ""}",NULL,NULL,30,0,0,C
+18586763,22748426,172,wc172.jpg,NULL,"{""en"": """", ""ja"": ""クリムソンレーキ""}",NULL,NULL,60,0,0,A
+18620596,45853241,17,W017.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム レッド パープル""}",NULL,NULL,14,0,0,E
+18626033,56303468,644,NULL,NULL,"{""en"": """", ""ja"": ""チタニウムホワイト""}",NULL,NULL,96,0,0,1
+18897732,5782615,Perylene Red,NULL,NULL,NULL,NULL,NULL,35,0,0,
+19352493,56303468,538,NULL,NULL,"{""en"": """", ""ja"": ""プルシアンブルー""}",NULL,NULL,46,0,0,1
+19566615,45853241,37,W037.jpg,NULL,"{""en"": """", ""ja"": ""パーマネント イエロー ディープ""}",NULL,NULL,32,0,0,A
+19689653,22748426,273,wc273.jpg,NULL,"{""en"": """", ""ja"": ""オペイクホワイト""}",NULL,NULL,88,0,0,A
+20352049,56303468,016,NULL,NULL,"{""en"": """", ""ja"": ""オーレオリン""}",NULL,NULL,7,0,0,4
+20596661,56303468,097,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムレッドディープ""}",NULL,NULL,22,0,0,4
+20599288,45853241,05,W005.jpg,NULL,"{""en"": """", ""ja"": ""キナクリドン レッド""}",NULL,NULL,5,0,0,C
+21083269,56303468,609,NULL,NULL,"{""en"": """", ""ja"": ""セピア""}",NULL,NULL,87,0,0,1
+21672313,45853241,27,W027.jpg,NULL,"{""en"": """", ""ja"": ""キナクリドン スカーレット""}",NULL,NULL,9,0,0,C
+21908609,56303468,895,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムフリーレッドディープ""}",NULL,NULL,104,0,0,4
+21919409,56303468,362,NULL,NULL,"{""en"": """", ""ja"": ""ライトレッド""}",NULL,NULL,76,0,0,1
+21970148,45853241,133,W133.jpg,NULL,"{""en"": """", ""ja"": ""バーント アンバー""}",NULL,NULL,90,0,0,A
+22184497,5782615,Transparent Yellow Oxide,NULL,NULL,NULL,NULL,NULL,121,0,0,
+22315191,56303468,707,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーブルー（グレーンシェード）""}",NULL,NULL,47,0,0,1
+22381154,56303468,056,NULL,NULL,"{""en"": """", ""ja"": ""ブラウンマダー""}",NULL,NULL,79,0,0,1
+22424687,5782615,Phthalo Turquoise,NULL,NULL,NULL,NULL,NULL,86,0,0,
+22602908,45853241,65,W065.jpg,NULL,"{""en"": """", ""ja"": ""テール ベルト""}",NULL,NULL,55,0,0,A
+22715575,22748426,124,wc124.jpg,NULL,"{""en"": """", ""ja"": ""パーマネントイエロー ライト""}",NULL,NULL,45,0,0,A
+22792036,45853241,11,W011.jpg,NULL,"{""en"": """", ""ja"": ""カーマイン""}",NULL,NULL,3,1,0,A
+23044147,5782615,Cadmium Yellow Light Hue,NULL,NULL,NULL,NULL,NULL,7,0,0,3
+23536105,5782615,Quinacridone Burnt Orange,NULL,NULL,NULL,NULL,NULL,134,0,0,
+23950544,5782615,Mayan Dark Blue,NULL,NULL,NULL,NULL,NULL,71,0,0,
+24135683,45853241,25,W025.jpg,NULL,"{""en"": """", ""ja"": ""ブリリアント ピンク""}",NULL,NULL,12,1,0,A
+24368843,5782615,Cerulean Blue,NULL,NULL,NULL,NULL,NULL,81,0,0,
+24690810,5782615,French Ochre,NULL,NULL,NULL,NULL,NULL,114,0,0,
+25267117,56303468,347,NULL,NULL,"{""en"": """", ""ja"": ""レモンイエロー""}",NULL,NULL,1,0,0,4
+25645859,22748426,123,wc123.jpg,NULL,"{""en"": """", ""ja"": ""パーマネントイエロー ディープ""}",NULL,NULL,44,0,0,A
+25833546,45853241,132,W132.jpg,NULL,"{""en"": """", ""ja"": ""ロー シェンナ""}",NULL,NULL,92,0,1,A
+26003540,5782615,Monte Amiata Natural Sienna,NULL,NULL,NULL,NULL,NULL,122,0,0,
+26011116,56303468,447,NULL,NULL,"{""en"": """", ""ja"": ""オリーブグリーン""}",NULL,NULL,63,0,0,1
+26408169,5782615,Payne’s Blue Grey,NULL,NULL,NULL,NULL,NULL,170,0,0,
+26627904,22748426,086,wc086.jpg,NULL,"{""en"": """", ""ja"": ""オリーブグリーン""}",NULL,NULL,34,0,0,A
+26664775,22748426,266,wc266.jpg,NULL,"{""en"": """", ""ja"": ""オフブラック""}",NULL,NULL,86,0,0,A
+26721476,5782615,Quinacridone Pink,NULL,NULL,NULL,NULL,NULL,47,0,0,
+26733551,45853241,60,W060.jpg,NULL,"{""en"": """", ""ja"": ""ビリジャン""}",NULL,NULL,50,0,0,E
+26771317,56303468,898,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムフリーレモン""}",NULL,NULL,97,0,0,4
+27090694,5782615,Phthalo Blue (RS),NULL,NULL,NULL,NULL,NULL,79,0,0,
+27226868,22748426,113,wc113.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムイエロー［ネオ］""}",NULL,NULL,40,0,0,C
+27807111,22748426,112,wc112.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムイエロー ディープ［ネオ］""}",NULL,NULL,39,0,0,C
+27835279,22748426,063,wc063.jpg,NULL,"{""en"": """", ""ja"": ""オキサイドグリーン""}",NULL,NULL,22,0,0,C
+27850635,5782615,Roasted French Ochre,NULL,NULL,NULL,NULL,NULL,129,0,0,
+28107111,5782615,Burnt Yellow Ochre,NULL,NULL,NULL,NULL,NULL,128,0,0,
+28354402,5782615,Lamp Black,NULL,NULL,NULL,NULL,NULL,172,0,0,2
+28358583,5782615,Grey Titanium,NULL,NULL,NULL,NULL,NULL,146,0,0,
+28616472,5782615,Napthamide Maroon,NULL,NULL,NULL,NULL,NULL,143,0,0,
+28673984,45853241,157,W157.jpg,NULL,"{""en"": """", ""ja"": ""ニュートラル チント""}",NULL,NULL,101,0,0,A
+28775969,5782615,Hooker’s Green,NULL,NULL,NULL,NULL,NULL,100,0,0,
+29021372,22748426,033,wc033.jpg,NULL,"{""en"": """", ""ja"": ""プルシャンブルー""}",NULL,NULL,12,0,0,A
+29182057,45853241,105,W105.jpg,NULL,"{""en"": """", ""ja"": ""マンガニーズ ブルー ノーバ""}",NULL,NULL,64,0,0,B
+29397355,56303468,890,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムフリーイエロー""}",NULL,NULL,99,0,0,4
+29527010,45853241,104,W104.jpg,NULL,"{""en"": """", ""ja"": ""ホリゾン ブルー""}",NULL,NULL,65,1,0,A
+29545636,5782615,Cadmium Yellow Medium Hue,NULL,NULL,NULL,NULL,NULL,8,0,0,3
+29742892,5782615,Raw Sienna Light,NULL,NULL,NULL,NULL,NULL,115,0,0,
+29975875,5782615,Pyrrol Orange,NULL,NULL,NULL,NULL,NULL,21,0,0,
+29978827,5782615,Permanent Yellow Deep,NULL,NULL,NULL,NULL,NULL,19,0,0,
+30269177,22748426,094,wc094.jpg,NULL,"{""en"": """", ""ja"": ""ピーコックグリーン""}",NULL,NULL,38,0,0,B
+30314357,56303468,548,NULL,NULL,"{""en"": """", ""ja"": ""キナクリドンレッド""}",NULL,NULL,25,0,0,3
+30317157,22748426,192,wc192.jpg,NULL,"{""en"": """", ""ja"": ""パッションオレンジ""}",NULL,NULL,69,0,0,B
+30344172,22748426,131,wc131.jpg,NULL,"{""en"": """", ""ja"": ""ジョンブリアン""}",NULL,NULL,47,0,0,A
+30461346,22748426,076,wc076.jpg,NULL,"{""en"": """", ""ja"": ""エメラルドグリーン［ネオ］""}",NULL,NULL,30,0,0,B
+30547586,5782615,Cobalt Violet Deep,NULL,NULL,NULL,NULL,NULL,59,0,0,
+30585281,5782615,Organic Vermilion,NULL,NULL,NULL,NULL,NULL,27,0,0,
+31015409,22748426,038,wc038.jpg,NULL,"{""en"": """", ""ja"": ""ブルーコンポーゼ""}",NULL,NULL,16,0,0,A
+31082466,45853241,93,W093.jpg,NULL,"{""en"": """", ""ja"": ""ウルトラマリン ライト""}",NULL,NULL,71,0,0,A
+31182496,56303468,076,NULL,NULL,"{""en"": """", ""ja"": ""バーントアンバー""}",NULL,NULL,85,0,0,1
+31193289,22748426,165,wc165.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムレッドオレンジ ［ネオ］""}",NULL,NULL,57,0,0,C
+31406079,56303468,285,NULL,NULL,"{""en"": """", ""ja"": ""ゴールドオーカー""}",NULL,NULL,71,0,0,2
+31724895,5782615,Spring Green,NULL,NULL,NULL,NULL,NULL,95,0,0,
+31976413,56303468,191,NULL,NULL,"{""en"": """", ""ja"": ""コバルトターコイズライト""}",NULL,NULL,52,0,0,4
+32068322,22748426,043,wc043.jpg,NULL,"{""en"": """", ""ja"": ""ロイヤルブルー""}",NULL,NULL,20,0,0,C
+32394936,5782615,Shadow Violet,NULL,NULL,NULL,NULL,NULL,69,0,0,
+32638296,22748426,129,wc129.jpg,NULL,"{""en"": """", ""ja"": ""レモンイエロー""}",NULL,NULL,46,0,0,B
+32922301,56303468,552,NULL,NULL,"{""en"": """", ""ja"": ""ローシェンナ""}",NULL,NULL,70,0,0,1
+32999010,56303468,547,NULL,NULL,"{""en"": """", ""ja"": ""キナクリドンゴールド""}",NULL,NULL,72,0,0,3
+33280012,45853241,12,W012.jpg,NULL,"{""en"": """", ""ja"": ""ローズ マダー""}",NULL,NULL,4,0,0,A
+33303107,56303468,140,NULL,NULL,"{""en"": """", ""ja"": ""セルリアンブルー（レッドシェード）""}",NULL,NULL,48,0,0,3
+33431843,5782615,Mayan Violet,NULL,NULL,NULL,NULL,NULL,53,0,0,
+33471457,45853241,99,W099.jpg,NULL,"{""en"": """", ""ja"": ""ターコイズ ブルー""}",NULL,NULL,61,0,0,B
+33686158,5782615,Cobalt Green,NULL,NULL,NULL,NULL,NULL,94,0,0,
+33747151,5782615,Burnt Umber,NULL,NULL,NULL,NULL,NULL,156,0,0,
+33977564,5782615,Rose Madder Permanent,NULL,NULL,NULL,NULL,NULL,44,0,0,
+34343885,45853241,119,W119.jpg,NULL,"{""en"": """", ""ja"": ""キナクリドン マゼンタ""}",NULL,NULL,83,0,0,C
+34365236,22748426,065,wc065.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムグリーン［ネオ］""}",NULL,NULL,23,0,0,C
+34637013,5782615,Hansa Yellow Medium,NULL,NULL,NULL,NULL,NULL,11,0,0,3
+34749330,45853241,38,W038.jpg,NULL,"{""en"": """", ""ja"": ""パーマネント イエロー オレンジ""}",NULL,NULL,21,0,0,A
+35203934,56303468,180,NULL,NULL,"{""en"": """", ""ja"": ""コバルトブルーディープ""}",NULL,NULL,40,0,0,4
+35312956,5782615,Moonglow,NULL,NULL,NULL,NULL,NULL,68,0,0,
+35411919,56303468,074,NULL,NULL,"{""en"": """", ""ja"": ""バーントシェンナ""}",NULL,NULL,75,0,0,1
+35463059,22748426,194,wc194.jpg,NULL,"{""en"": """", ""ja"": ""ルビーレッド""}",NULL,NULL,71,0,0,B
+35520997,22748426,145,wc145.jpg,NULL,"{""en"": """", ""ja"": ""ガンボージ""}",NULL,NULL,52,0,0,B
+35713814,5782615,Phthalo Yellow Green,NULL,NULL,NULL,NULL,NULL,97,0,0,
+36010338,5782615,Phthalo Blue Turquoise,NULL,NULL,NULL,NULL,NULL,84,0,0,
+36010657,5782615,Ultramarine Violet,NULL,NULL,NULL,NULL,NULL,64,0,0,
+36035850,56303468,709,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーブルー（レッドシェード）""}",NULL,NULL,44,0,0,1
+36466151,5782615,Joseph Z’s Cool Grey,NULL,NULL,NULL,NULL,NULL,165,0,0,
+36830211,45853241,120,W120.jpg,NULL,"{""en"": """", ""ja"": ""キナクリドン バイオレット""}",NULL,NULL,84,0,0,B
+36914076,45853241,139,W139.jpg,NULL,"{""en"": """", ""ja"": ""バンダイキ ブラウン""}",NULL,NULL,96,0,0,A
+37250491,56303468,185,NULL,NULL,"{""en"": """", ""ja"": ""コバルトグリーンディープ""}",NULL,NULL,109,0,0,3
+37310981,22748426,092,wc092.jpg,NULL,"{""en"": """", ""ja"": ""ミントグリーン""}",NULL,NULL,36,0,0,C
+37503063,22748426,072,wc072.jpg,NULL,"{""en"": """", ""ja"": ""パーマネントグリーン""}",NULL,NULL,27,0,0,A
+37612187,45853241,63,W063.jpg,NULL,"{""en"": """", ""ja"": ""コバルト グリーン""}",NULL,NULL,49,0,0,D
+37660517,5782615,Burnt Sienna Light,NULL,NULL,NULL,NULL,NULL,152,0,0,
+37731091,5782615,Jane’s Grey,NULL,NULL,NULL,NULL,NULL,167,0,0,
+37883442,22748426,014,wc014.jpg,NULL,"{""en"": """", ""ja"": ""バイオレット""}",NULL,NULL,5,0,0,B
+38308141,5782615,Prussian Blue,NULL,NULL,NULL,NULL,NULL,80,0,0,
+38310855,45853241,90,W090.jpg,NULL,"{""en"": """", ""ja"": ""コバルト ブルー""}",NULL,NULL,69,0,0,D
+38814048,5782615,German Greenish Raw Umber,NULL,NULL,NULL,NULL,NULL,145,0,0,
+39323702,5782615,Fired Gold Ochre,NULL,NULL,NULL,NULL,NULL,151,0,0,
+39476456,5782615,Bordeaux,NULL,NULL,NULL,NULL,NULL,54,0,0,
+39569856,56303468,678,NULL,NULL,"{""en"": """", ""ja"": ""ベネチアンレッド""}",NULL,NULL,77,0,0,1
+39597668,45853241,170,W170.jpg,NULL,"{""en"": """", ""ja"": ""ブライト ローズ""}",NULL,NULL,82,0,0,B
+39681246,56303468,317,NULL,NULL,"{""en"": """", ""ja"": ""インディアンレッド""}",NULL,NULL,78,0,0,1
+39906233,5782615,Anthraquinoid Red,NULL,NULL,NULL,NULL,NULL,39,0,0,2
+40337765,22748426,114,wc114.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムイエロー ライト ［ネオ］""}",NULL,NULL,41,0,0,C
+40340353,22748426,204,wc204.jpg,NULL,"{""en"": """", ""ja"": ""ローシェンナ""}",NULL,NULL,74,0,0,A
+40799678,5782615,Lunar Violet,NULL,NULL,NULL,NULL,NULL,161,0,0,
+40968446,5782615,Pyrrol Crimson,NULL,NULL,NULL,NULL,NULL,51,0,0,
+41004345,56303468,638,NULL,NULL,"{""en"": """", ""ja"": ""テールベルト（イエローシェード）""}",NULL,NULL,64,0,0,1
+41139304,5782615,Transparent Pyrrol Orange,NULL,NULL,NULL,NULL,NULL,26,0,0,
+41230756,22748426,183,wc183.jpg,NULL,"{""en"": """", ""ja"": ""コーラルレッド""}",NULL,NULL,63,0,0,B
+41499888,5782615,Burnt Sienna,NULL,NULL,NULL,NULL,NULL,154,0,0,
+41593783,56303468,460,NULL,NULL,"{""en"": """", ""ja"": ""ペリレーングリーン""}",NULL,NULL,59,0,0,2
+41890476,5782615,Quinacridone Coral,NULL,NULL,NULL,NULL,NULL,29,0,0,
+42824879,22748426,191,wc191.jpg,NULL,"{""en"": """", ""ja"": ""ポピーオレンジ""}",NULL,NULL,68,0,0,B
+43342248,56303468,111,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムイエローディープ""}",NULL,NULL,15,0,0,4
+43457871,56303468,125,NULL,NULL,"{""en"": """", ""ja"": ""キャプトモータムバイオレット""}",NULL,NULL,83,0,0,2
+43791777,5782615,Cadmium Yellow Deep Hue,NULL,NULL,NULL,NULL,NULL,10,0,0,
+43989091,45853241,71,W071.jpg,NULL,"{""en"": """", ""ja"": ""コンポーズ グリーン""}",NULL,NULL,53,0,0,A
+44216094,56303468,723,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーオレンジ（レッドシェード）""}",NULL,NULL,18,0,0,1
+44279810,22748426,034,wc034.jpg,NULL,"{""en"": """", ""ja"": ""インジゴブルー""}",NULL,NULL,13,0,0,A
+44663291,5782615,Mayan Yellow,NULL,NULL,NULL,NULL,NULL,12,0,0,
+44706778,56303468,267,NULL,NULL,"{""en"": """", ""ja"": ""ニューガンボージ""}",NULL,NULL,11,0,0,1
+44775199,5782615,Cadmium Orange Hue,NULL,NULL,NULL,NULL,NULL,23,0,0,
+44984938,56303468,466,NULL,NULL,"{""en"": """", ""ja"": ""パーマネントアリザリンクリムソン""}",NULL,NULL,27,0,0,3
+45057166,45853241,190,W190.jpg,NULL,"{""en"": """", ""ja"": ""ゴールド""}",NULL,NULL,107,0,0,C
+45333722,45853241,153,W153.jpg,NULL,"{""en"": """", ""ja"": ""グレイ オブ グレイ""}",NULL,NULL,104,0,0,A
+45695768,22748426,170,wc170.jpg,NULL,"{""en"": """", ""ja"": ""プライムレッド""}",NULL,NULL,59,0,0,C
+45763560,45853241,155,W155.jpg,NULL,"{""en"": """", ""ja"": ""デービス グレイ""}",NULL,NULL,103,0,0,A
+45986362,5782615,Azo Yellow,NULL,NULL,NULL,NULL,NULL,5,0,0,3
+46109378,56303468,137,NULL,NULL,"{""en"": """", ""ja"": ""セルリアンブルー""}",NULL,NULL,49,0,0,3
+46178459,5782615,Quinacridone Lilac,NULL,NULL,NULL,NULL,NULL,49,0,0,
+46637367,5782615,Raw Umber VIolet,NULL,NULL,NULL,NULL,NULL,148,0,0,
+46718053,22748426,093,wc093.jpg,NULL,"{""en"": """", ""ja"": ""グリニッシュイエロー""}",NULL,NULL,37,0,0,C
+47203564,22748426,211,wc211.jpg,NULL,"{""en"": """", ""ja"": ""セピア""}",NULL,NULL,79,0,0,A
+47538373,56303468,094,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムレッド""}",NULL,NULL,21,0,0,4
+47901570,56303468,448,NULL,NULL,"{""en"": """", ""ja"": ""オペラローズ""}",NULL,NULL,32,0,0,2
+47914165,45853241,136,W136.jpg,NULL,"{""en"": """", ""ja"": ""セピア""}",NULL,NULL,97,1,0,A
+48001421,22748426,174,wc174.jpg,NULL,"{""en"": """", ""ja"": ""ローズマダー""}",NULL,NULL,61,0,0,A
+48001464,56303468,217,NULL,NULL,"{""en"": """", ""ja"": ""ディビスグレー""}",NULL,NULL,94,0,0,1
+48145100,56303468,348,NULL,NULL,"{""en"": """", ""ja"": ""レモンイエローディープ""}",NULL,NULL,6,0,0,2
+48866350,56303468,903,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムフリースカーレット""}",NULL,NULL,102,0,0,4
+49140667,45853241,92,W092.jpg,NULL,"{""en"": """", ""ja"": ""セルリアン ブルー""}",NULL,NULL,68,0,0,D
+49190093,5782615,Cobalt Turquoise,NULL,NULL,NULL,NULL,NULL,88,0,0,
+49253827,56303468,386,NULL,NULL,"{""en"": """", ""ja"": ""マーズブラック""}",NULL,NULL,93,0,0,1
+49312315,45853241,15,W015.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム レッド ディープ""}",NULL,NULL,15,0,0,E
+49827397,45853241,09,W009.jpg,NULL,"{""en"": """", ""ja"": ""パーマネント アリザリン クリムソン""}",NULL,NULL,2,0,0,C
+50083196,5782615,Buff Titanium,NULL,NULL,NULL,NULL,NULL,1,0,0,1
+50086404,45853241,08,W008.jpg,NULL,"{""en"": """", ""ja"": ""ペリレン マルーン""}",NULL,NULL,7,0,0,B
+50340969,5782615,Joseph Z’s Warm Grey,NULL,NULL,NULL,NULL,NULL,166,0,0,
+50626759,56303468,537,NULL,NULL,"{""en"": """", ""ja"": ""ポーターズピンク""}",NULL,NULL,80,0,0,2
+51076837,56303468,507,NULL,NULL,"{""en"": """", ""ja"": ""ペリレーンマルーン""}",NULL,NULL,81,0,0,3
+51170654,5782615,Pyrrol Red,NULL,NULL,NULL,NULL,NULL,34,0,0,
+51376844,5782615,Isoindoline Yellow,NULL,NULL,NULL,NULL,NULL,18,0,0,
+51606887,22748426,021,wc021.jpg,NULL,"{""en"": """", ""ja"": ""ウルトラマリン""}",NULL,NULL,7,0,0,A
+51831593,56303468,744,NULL,NULL,"{""en"": """", ""ja"": ""イエローオーカー""}",NULL,NULL,69,0,0,1
+52172001,45853241,135,W135.jpg,NULL,"{""en"": """", ""ja"": ""インデアン レッド""}",NULL,NULL,86,0,0,A
+52187210,45853241,134,W134.jpg,NULL,"{""en"": """", ""ja"": ""バーント シェンナ""}",NULL,NULL,89,0,0,A
+52749606,5782615,Viridian,NULL,NULL,NULL,NULL,NULL,91,0,0,
+52960477,5782615,Goethite-Brown Ochre,NULL,NULL,NULL,NULL,NULL,124,0,0,
+53153877,5782615,Transparent Brown Oxide,NULL,NULL,NULL,NULL,NULL,149,0,0,
+53397289,45853241,74,W074.jpg,NULL,"{""en"": """", ""ja"": ""オリーブ グリーン""}",NULL,NULL,41,0,0,A
+53400242,56303468,118,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムイエローペール""}",NULL,NULL,9,0,0,4
+53957748,5782615,Perylene Maroon,NULL,NULL,NULL,NULL,NULL,141,0,0,
+54387474,5782615,Quinacridone Red,NULL,NULL,NULL,NULL,NULL,38,0,0,
+54443749,45853241,02,W002.jpg,NULL,"{""en"": """", ""ja"": ""チャイニーズ ホワイト""}",NULL,NULL,105,0,0,A
+54715274,45853241,156,W156.jpg,NULL,"{""en"": """", ""ja"": ""ペインズ グレイ""}",NULL,NULL,102,0,0,A
+55207163,5782615,Perylene Violet,NULL,NULL,NULL,NULL,NULL,57,0,0,
+55359892,5782615,Joseph Z’s Neutral Grey,NULL,NULL,NULL,NULL,NULL,164,0,0,
+55638302,5782615,Quinacridone Violet,NULL,NULL,NULL,NULL,NULL,56,0,0,
+55639989,56303468,721,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーグリーン（イエローシェード）""}",NULL,NULL,57,0,0,1
+55665766,45853241,116,W116.jpg,NULL,"{""en"": """", ""ja"": ""ラベンダー""}",NULL,NULL,76,0,0,A
+55683947,56303468,731,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーイエローディープ""}",NULL,NULL,13,0,0,1
+55842469,5782615,Phthalo Green (BS),NULL,NULL,NULL,NULL,NULL,92,0,0,
+55978358,22748426,209,wc209.jpg,NULL,"{""en"": """", ""ja"": ""バーントアンバー""}",NULL,NULL,77,0,0,A
+56298419,56303468,650,NULL,NULL,"{""en"": """", ""ja"": ""トランスペアレントオレンジ""}",NULL,NULL,105,0,0,3
+57133945,56303468,710,NULL,NULL,"{""en"": """", ""ja"": ""ㇲマルトブルー""}",NULL,NULL,107,0,0,3
+57397094,5782615,Deep Sap Green,NULL,NULL,NULL,NULL,NULL,104,0,0,
+57499051,22748426,025,wc025.jpg,NULL,"{""en"": """", ""ja"": ""コバルトブルー［ネオ］""}",NULL,NULL,9,0,0,A
+57657024,5782615,Deep Scarlet,NULL,NULL,NULL,NULL,NULL,142,0,0,
+57686043,22748426,185,wc185.jpg,NULL,"{""en"": """", ""ja"": ""オーロラピンク""}",NULL,NULL,64,1,0,B
+58020933,5782615,Verditer Blue,NULL,NULL,NULL,NULL,NULL,77,0,0,
+58449988,5782615,Undersea Green,NULL,NULL,NULL,NULL,NULL,108,0,0,
+58748690,56303468,491,NULL,NULL,"{""en"": """", ""ja"": ""パーマネントモーブ""}",NULL,NULL,36,0,0,3
+59207867,56303468,692,NULL,NULL,"{""en"": """", ""ja"": ""ビリジアン""}",NULL,NULL,56,0,0,3
+59222194,56303468,331,NULL,NULL,"{""en"": """", ""ja"": ""アイボリーブラック""}",NULL,NULL,91,0,0,1
+60065968,5782615,Raw Sienna,NULL,NULL,NULL,NULL,NULL,119,0,0,
+60151828,56303468,745,NULL,NULL,"{""en"": """", ""ja"": ""イエローオーカーライト""}",NULL,NULL,68,0,0,1
+60343566,56303468,184,NULL,NULL,"{""en"": """", ""ja"": ""コバルトグリーン""}",NULL,NULL,54,0,0,4
+60550241,5782615,Transparent Red Oxide,NULL,NULL,NULL,NULL,NULL,150,0,0,
+60661332,22748426,031,wc031.jpg,NULL,"{""en"": """", ""ja"": ""ターコイズブルー""}",NULL,NULL,11,0,0,B
+60853783,5782615,Titanium White,NULL,NULL,NULL,NULL,NULL,176,0,0,
+60927772,5782615,Yellow Ochre,NULL,NULL,NULL,NULL,NULL,117,0,0,
+61044182,56303468,150,NULL,NULL,"{""en"": """", ""ja"": ""チャイニーズホワイト""}",NULL,NULL,95,0,0,1
+61074381,5782615,Quinacridone Gold,NULL,NULL,NULL,NULL,NULL,120,0,0,
+61128855,5782615,New Gamboge,NULL,NULL,NULL,NULL,NULL,17,0,0,
+61377732,22748426,276,wc276.jpg,NULL,"{""en"": """", ""ja"": ""パールシルバー""}",NULL,NULL,90,0,0,C
+61539443,56303468,587,NULL,NULL,"{""en"": """", ""ja"": ""ローズマダージェニュイン""}",NULL,NULL,31,1,0,4
+61839771,56303468,891,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムフリーイエローディープ""}",NULL,NULL,100,0,0,4
+61918161,5782615,Lavender,NULL,NULL,NULL,NULL,NULL,78,0,0,
+61940713,45853241,110,W110.jpg,NULL,"{""en"": """", ""ja"": ""コバルト バイオレット ライト""}",NULL,NULL,79,0,0,F
+62046707,45853241,30,W030.jpg,NULL,"{""en"": """", ""ja"": ""ネイプルス イエロー""}",NULL,NULL,37,0,0,A
+62353342,5782615,Phthalo Green (YS),NULL,NULL,NULL,NULL,NULL,99,0,0,
+62521900,5782615,French Ultramarine,NULL,NULL,NULL,NULL,NULL,74,0,0,
+62716013,5782615,Rare Green Earth,NULL,NULL,NULL,NULL,NULL,107,0,0,
+62791104,45853241,142,W142.jpg,NULL,"{""en"": """", ""ja"": ""キナクリドン ゴールド""}",NULL,NULL,31,0,0,C
+63103563,56303468,697,NULL,NULL,"{""en"": """", ""ja"": ""アクアグリーン""}",NULL,NULL,108,0,0,3
+63280036,56303468,550,NULL,NULL,"{""en"": """", ""ja"": ""キナクリドンバイオレット""}",NULL,NULL,106,0,0,3
+64152769,56303468,010,NULL,NULL,"{""en"": """", ""ja"": ""アントワープブルー""}",NULL,NULL,45,0,0,1
+64633458,56303468,730,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーイエロー""}",NULL,NULL,5,0,0,1
+64657424,5782615,Permanent Orange,NULL,NULL,NULL,NULL,NULL,22,0,0,3
+64710305,5782615,Hansa Yellow Deep,NULL,NULL,NULL,NULL,NULL,16,0,0,
+65252688,45853241,14,W014.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム レッド ライト""}",NULL,NULL,16,0,0,E
+65666178,5782615,Nickel Azo Yellow,NULL,NULL,NULL,NULL,NULL,112,0,0,
+65941701,5782615,Alizarin Crimson,NULL,NULL,NULL,NULL,NULL,41,0,0,1
+66058032,45853241,44,W044.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム イエロー オレンジ""}",NULL,NULL,22,0,0,C
+66099565,22748426,248,wc248.jpg,NULL,"{""en"": """", ""ja"": ""ペインズグレー""}",NULL,NULL,84,1,0,A
+66140765,56303468,263,NULL,NULL,"{""en"": """", ""ja"": ""フレンチウルトラマリン""}",NULL,NULL,41,0,0,2
+66154498,45853241,41,W041.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム イエロー ペール""}",NULL,NULL,25,0,0,C
+66273234,22748426,203,wc203.jpg,NULL,"{""en"": """", ""ja"": ""ベネチアンレッド""}",NULL,NULL,73,0,0,A
+66885663,45853241,70,W070.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム グリーン ディープ""}",NULL,NULL,45,0,0,C
+66940221,45853241,07,W007.jpg,NULL,"{""en"": """", ""ja"": ""ピロ－ル レッド""}",NULL,NULL,8,0,0,A
+67035196,22748426,007,wc007.jpg,NULL,"{""en"": """", ""ja"": ""パーマネント バイオレット""}",NULL,NULL,1,0,0,B
+67172938,56303468,470,NULL,NULL,"{""en"": """", ""ja"": ""ペリレーンバイオレット""}",NULL,NULL,82,0,0,2
+67408186,5782615,Ultramarine Violet,NULL,NULL,NULL,NULL,NULL,60,0,0,
+67491866,45853241,112,W112.jpg,NULL,"{""en"": """", ""ja"": ""ミネラル バイオレット""}",NULL,NULL,78,0,0,B
+67588401,5782615,Cobalt Teal Blue,NULL,NULL,NULL,NULL,NULL,85,0,0,
+67596013,22748426,013,wc013.jpg,NULL,"{""en"": """", ""ja"": ""フローラルバイオレット""}",NULL,NULL,4,0,0,B
+67835852,5782615,Permanent Alizarin Crimson,NULL,NULL,NULL,NULL,NULL,42,0,0,
+67888163,5782615,Ultramarine Blue,NULL,NULL,NULL,NULL,NULL,73,0,0,
+68036014,5782615,Quinacridone Deep Gold,NULL,NULL,NULL,NULL,NULL,125,0,0,
+68398264,5782615,Cobalt Blue Violet,NULL,NULL,NULL,NULL,NULL,67,0,0,2
+68430940,45853241,115,W115.jpg,NULL,"{""en"": """", ""ja"": ""パーマネント バイオレット""}",NULL,NULL,77,0,0,B
+68465592,5782615,Indigo,NULL,NULL,NULL,NULL,NULL,70,0,0,
+68534002,5782615,Italian Burnt Sienna,NULL,NULL,NULL,NULL,NULL,133,0,0,2
+68646851,5782615,Burgundy Red Ochre,NULL,NULL,NULL,NULL,NULL,130,0,0,
+68713746,45853241,16,W016.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム レッド オレンジ""}",NULL,NULL,19,0,0,E
+68947447,22748426,135,wc135.jpg,NULL,"{""en"": """", ""ja"": ""ネープルスイエロー""}",NULL,NULL,48,0,0,A
+69069711,56303468,311,NULL,NULL,"{""en"": """", ""ja"": ""フーカスグリーン""}",NULL,NULL,61,0,0,1
+69287497,5782615,Verona Gold Ochre,NULL,NULL,NULL,NULL,NULL,113,0,0,
+69402552,22748426,243,wc243.jpg,NULL,"{""en"": """", ""ja"": ""イエローグレー""}",NULL,NULL,82,0,0,A
+69462335,56303468,059,NULL,NULL,"{""en"": """", ""ja"": ""ブラウンオーカー""}",NULL,NULL,73,0,0,1
+69513488,56303468,667,NULL,NULL,"{""en"": """", ""ja"": ""ウルトラマリン（ブルーシェード）""}",NULL,NULL,42,0,0,2
+69867751,56303468,004,NULL,NULL,"{""en"": """", ""ja"": ""アリザリンクリムソン""}",NULL,NULL,28,0,0,1
+69925070,5782615,Green Gold,NULL,NULL,NULL,NULL,NULL,110,0,0,
+70008654,5782615,Rich Green Gold,NULL,NULL,NULL,NULL,NULL,111,0,0,
+70055285,5782615,Cobalt Green Pale,NULL,NULL,NULL,NULL,NULL,90,0,0,
+70488140,45853241,108,W108.jpg,NULL,"{""en"": """", ""ja"": ""フタロ ブルー レッドシェード""}",NULL,NULL,58,0,0,A
+70671939,56303468,545,NULL,NULL,"{""en"": """", ""ja"": ""キナクリドンマゼンタ""}",NULL,NULL,33,0,0,3
+70853349,56303468,430,NULL,NULL,"{""en"": """", ""ja"": ""ニュートラルティント""}",NULL,NULL,90,0,0,1
+71004931,56303468,459,NULL,NULL,"{""en"": """", ""ja"": ""オキサイドオブクロミウム""}",NULL,NULL,60,0,0,3
+71134474,45853241,42,W042.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム イエロー ライト""}",NULL,NULL,24,0,0,C
+71368403,22748426,139,wc139.jpg,NULL,"{""en"": """", ""ja"": ""イエローオーカー""}",NULL,NULL,50,0,0,A
+71399967,5782615,Terre Verte,NULL,NULL,NULL,NULL,NULL,103,0,0,
+71515366,56303468,294,NULL,NULL,"{""en"": """", ""ja"": ""グリーンゴールド""}",NULL,NULL,65,0,0,2
+71542908,56303468,554,NULL,NULL,"{""en"": """", ""ja"": ""ローアンバー""}",NULL,NULL,84,0,0,1
+71590960,5782615,Quinacridone Rose,NULL,NULL,NULL,NULL,NULL,48,0,0,
+71593148,5782615,Payne’s Grey,NULL,NULL,NULL,NULL,NULL,171,0,0,2
+71717206,45853241,46,W046.jpg,NULL,"{""en"": """", ""ja"": ""グリニッシュ イエロー""}",NULL,NULL,40,1,0,C
+72154017,45853241,13,W013.jpg,NULL,"{""en"": """", ""ja"": ""オペラ""}",NULL,NULL,11,1,0,B
+72915030,5782615,Pyrrol Scarlet,NULL,NULL,NULL,NULL,NULL,30,0,0,
+73187572,56303468,190,NULL,NULL,"{""en"": """", ""ja"": ""コバルトターコイズ""}",NULL,NULL,53,0,0,4
+73611449,45853241,152,W152.jpg,NULL,"{""en"": """", ""ja"": ""グリーン グレイ""}",NULL,NULL,56,0,0,A
+73796993,22748426,261,wc261.jpg,NULL,"{""en"": """", ""ja"": ""アイボリーブラック""}",NULL,NULL,85,0,0,A
+73808225,22748426,193,wc193.jpg,NULL,"{""en"": """", ""ja"": ""チェリーレッド""}",NULL,NULL,70,0,0,B
+73910257,5782615,Italian Deep Ochre,NULL,NULL,NULL,NULL,NULL,126,0,0,
+74154261,45853241,79,W079.jpg,NULL,"{""en"": """", ""ja"": ""シャドー グリーン""}",NULL,NULL,57,0,0,D
+74562481,45853241,34,W034.jpg,NULL,"{""en"": """", ""ja"": ""イエロー オーカー""}",NULL,NULL,93,0,0,A
+74583692,56303468,503,NULL,NULL,"{""en"": """", ""ja"": ""パーマネントサップグリーン""}",NULL,NULL,62,0,0,1
+74586339,5782615,Van Dyck Brown,NULL,NULL,NULL,NULL,NULL,160,0,0,
+74616745,56303468,337,NULL,NULL,"{""en"": """", ""ja"": ""ランプブラック""}",NULL,NULL,92,0,0,1
+74728297,56303468,526,NULL,NULL,"{""en"": """", ""ja"": ""フタロターコイズ""}",NULL,NULL,51,0,0,2
+75000380,5782615,Wisteria,NULL,NULL,NULL,NULL,NULL,66,0,0,
+75034847,45853241,106,W106.jpg,NULL,"{""en"": """", ""ja"": ""コバルト ターコイズ ライト""}",NULL,NULL,62,0,0,D
+75191430,22748426,088,wc088.jpg,NULL,"{""en"": """", ""ja"": ""グラスグリーン""}",NULL,NULL,35,0,0,C
+75376493,56303468,108,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムイエロー""}",NULL,NULL,12,0,0,4
+75438510,5782615,Cascade Green,NULL,NULL,NULL,NULL,NULL,93,0,0,
+75458169,56303468,322,NULL,NULL,"{""en"": """", ""ja"": ""インディゴ""}",NULL,NULL,88,0,0,1
+76338242,45853241,175,W175.jpg,NULL,"{""en"": """", ""ja"": ""ブライト バイオレット""}",NULL,NULL,81,0,0,B
+76685482,22748426,085,wc085.jpg,NULL,"{""en"": """", ""ja"": ""サップグリーン""}",NULL,NULL,33,0,0,A
+77029968,45853241,130,W130.jpg,NULL,"{""en"": """", ""ja"": ""ライト レッド""}",NULL,NULL,88,0,0,A
+77106456,45853241,129,W129.jpg,NULL,"{""en"": """", ""ja"": ""アンバー""}",NULL,NULL,95,0,0,A
+77142669,56303468,676,NULL,NULL,"{""en"": """", ""ja"": ""バンダイクブラウン""}",NULL,NULL,86,0,0,1
+77191752,56303468,106,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムスカーレット""}",NULL,NULL,19,0,0,4
+77251889,56303468,422,NULL,NULL,"{""en"": """", ""ja"": ""ネイプルスイエロー""}",NULL,NULL,66,0,0,1
+77531719,45853241,39,W039.jpg,NULL,"{""en"": """", ""ja"": ""オーレオリン""}",NULL,NULL,34,0,0,D
+77563609,45853241,62,W062.jpg,NULL,"{""en"": """", ""ja"": ""フーカス グリーン""}",NULL,NULL,47,1,0,B
+77652524,45853241,43,W043.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム イエロー ディープ""}",NULL,NULL,23,0,0,C
+77771839,22748426,010,wc010.jpg,NULL,"{""en"": """", ""ja"": ""モーブ""}",NULL,NULL,3,0,0,B
+78124714,5782615,Opera Pink,NULL,NULL,NULL,NULL,NULL,45,0,0,
+78240494,22748426,239,wc239.jpg,NULL,"{""en"": """", ""ja"": ""ブルーグレー""}",NULL,NULL,81,0,0,A
+78310413,56303468,465,NULL,NULL,"{""en"": """", ""ja"": ""ペイニーズグレー""}",NULL,NULL,89,0,0,1
+78549031,5782615,Italian Venetian Red,NULL,NULL,NULL,NULL,NULL,138,0,0,
+78671911,22748426,179,wc179.jpg,NULL,"{""en"": """", ""ja"": ""ブライトレッド""}",NULL,NULL,62,0,0,B
+78903532,45853241,67,W067.jpg,NULL,"{""en"": """", ""ja"": ""パーマネント グリーン No.2""}",NULL,NULL,44,0,0,A
+79008216,22748426,163,wc163.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムレッド［ネオ］""}",NULL,NULL,55,0,0,C
+79066780,45853241,26,W026.jpg,NULL,"{""en"": """", ""ja"": ""シェル ピンク""}",NULL,NULL,13,1,0,A
+79344636,45853241,19,W019.jpg,NULL,"{""en"": """", ""ja"": ""バーミリオン ヒュー""}",NULL,NULL,18,0,0,A
+80062067,5782615,Perylene Scarlet,NULL,NULL,NULL,NULL,NULL,31,0,0,
+80144726,56303468,319,NULL,NULL,"{""en"": """", ""ja"": ""インディアンイエロー""}",NULL,NULL,14,0,0,1
+80357454,45853241,50,W050.jpg,NULL,"{""en"": """", ""ja"": ""イミダゾロン イエロー""}",NULL,NULL,28,0,0,B
+80618694,45853241,18,W018.jpg,NULL,"{""en"": """", ""ja"": ""バーミリオン""}",NULL,NULL,17,0,0,F
+80740440,45853241,66,W066.jpg,NULL,"{""en"": """", ""ja"": ""パーマネント グリーン No.1""}",NULL,NULL,43,0,0,A
+80924423,45853241,97,W097.jpg,NULL,"{""en"": """", ""ja"": ""プルシャン ブルー""}",NULL,NULL,73,0,0,A
+81081218,5782615,Quinacridone Magenta,NULL,NULL,NULL,NULL,NULL,50,0,0,
+81520876,5782615,Indian Yellow,NULL,NULL,NULL,NULL,NULL,14,0,0,
+81836814,22748426,206,wc206.jpg,NULL,"{""en"": """", ""ja"": ""バーントシェンナ""}",NULL,NULL,75,0,0,A
+82056567,22748426,084,wc084.jpg,NULL,"{""en"": """", ""ja"": ""ジャングルグリーン""}",NULL,NULL,32,0,0,C
+82169172,45853241,94,W094.jpg,NULL,"{""en"": """", ""ja"": ""ウルトラマリン ディープ""}",NULL,NULL,72,0,0,A
+82434622,45853241,51,W051.jpg,NULL,"{""en"": """", ""ja"": ""イミダゾロン レモン""}",NULL,NULL,27,0,0,B
+82575291,22748426,008,wc008.jpg,NULL,"{""en"": """", ""ja"": ""マゼンタ""}",NULL,NULL,2,0,0,B
+82960361,45853241,141,W141.jpg,NULL,"{""en"": """", ""ja"": ""イミダゾロン ブラウン""}",NULL,NULL,87,0,0,B
+83849280,5782615,Manganese Blue Hue,NULL,NULL,NULL,NULL,NULL,83,0,0,
+83910158,5782615,Enviro-Friendly Red Iron Oxide,NULL,NULL,NULL,NULL,NULL,153,0,0,
+84002501,5782615,Permanent Red,NULL,NULL,NULL,NULL,NULL,36,0,0,
+84122519,45853241,32,W032.jpg,NULL,"{""en"": """", ""ja"": ""ジョーン ブリヤン No.2""}",NULL,NULL,39,0,0,A
+84139227,56303468,603,NULL,NULL,"{""en"": """", ""ja"": ""スカーレットレーク""}",NULL,NULL,20,0,0,2
+84898896,22748426,040,wc040.jpg,NULL,"{""en"": """", ""ja"": ""スカイブルー""}",NULL,NULL,17,0,0,B
+84961855,22748426,073,wc073.jpg,NULL,"{""en"": """", ""ja"": ""パーマネントグリーン ライト""}",NULL,NULL,28,0,0,A
+85024354,5782615,Aureolin (Cobalt Yellow),NULL,NULL,NULL,NULL,NULL,9,0,0,
+85027790,5782615,Lemon Yellow,NULL,NULL,NULL,NULL,NULL,13,0,0,
+85143797,45853241,77,W077.jpg,NULL,"{""en"": """", ""ja"": ""リーフ グリーン""}",NULL,NULL,42,0,0,B
+85880728,5782615,Enviro-Friendly Brown Iron Oxide,NULL,NULL,NULL,NULL,NULL,157,0,0,1
+86257950,5782615,Rose of Ultramarine,NULL,NULL,NULL,NULL,NULL,61,0,0,
+86363836,5782615,Graphite Grey,NULL,NULL,NULL,NULL,NULL,163,0,0,
+86501106,5782615,Naples Yellow,NULL,NULL,NULL,NULL,NULL,15,0,0,3
+86547437,22748426,190,wc190.jpg,NULL,"{""en"": """", ""ja"": ""ベビーピンク""}",NULL,NULL,67,0,0,B
+86774430,45853241,107,W107.jpg,NULL,"{""en"": """", ""ja"": ""フタロ ブルー イエローシェード""}",NULL,NULL,59,0,0,A
+86832020,22748426,216,wc216.jpg,NULL,"{""en"": """", ""ja"": ""ブラウンマダー""}",NULL,NULL,80,0,0,A
+86900537,5782615,Cobalt Blue,NULL,NULL,NULL,NULL,NULL,75,0,0,
+87336589,45853241,40,W040.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム イエロー レモン""}",NULL,NULL,26,0,0,C
+87585166,5782615,Imperial Purple,NULL,NULL,NULL,NULL,NULL,62,0,0,
+88026328,22748426,078,wc078.jpg,NULL,"{""en"": """", ""ja"": ""テールベルト""}",NULL,NULL,31,0,0,A
+88157350,22748426,070,wc070.jpg,NULL,"{""en"": """", ""ja"": ""コバルトグリーン［ネオ］""}",NULL,NULL,25,0,0,C
+88385186,22748426,188,wc188.jpg,NULL,"{""en"": """", ""ja"": ""フレッシュピンク""}",NULL,NULL,65,0,0,B
+88400756,22748426,074,wc074.jpg,NULL,"{""en"": """", ""ja"": ""パーマネントグリーンペール""}",NULL,NULL,29,0,0,A
+88532138,22748426,144,wc144.jpg,NULL,"{""en"": """", ""ja"": ""インディアンイエロー""}",NULL,NULL,51,0,0,B
+89256687,5782615,Perinone Orange,NULL,NULL,NULL,NULL,NULL,24,0,0,
+89354520,22748426,189,wc189.jpg,NULL,"{""en"": """", ""ja"": ""ピーチピンク""}",NULL,NULL,66,0,0,B
+89510020,5782615,Phthalo Blue (GS),NULL,NULL,NULL,NULL,NULL,76,0,0,
+89549060,56303468,379,NULL,NULL,"{""en"": """", ""ja"": ""マンガニーズブルーヒュー""}",NULL,NULL,50,0,0,2
+89592169,56303468,025,NULL,NULL,"{""en"": """", ""ja"": ""ビスマスイエロー""}",NULL,NULL,2,0,0,3
+89721179,45853241,48,W048.jpg,NULL,"{""en"": """", ""ja"": ""ガンボージ ノーバ""}",NULL,NULL,29,0,0,B
+89990563,22748426,136,wc136.jpg,NULL,"{""en"": """", ""ja"": ""ネープルスアイボリー""}",NULL,NULL,49,0,0,A
+90073989,56303468,724,NULL,NULL,"{""en"": """", ""ja"": ""ウィンザーオレンジ""}",NULL,NULL,17,0,0,1
+90135890,45853241,98,W098.jpg,NULL,"{""en"": """", ""ja"": ""インジゴ""}",NULL,NULL,75,0,0,A
+90723273,5782615,Raw Umber,NULL,NULL,NULL,NULL,NULL,158,0,0,
+91126716,56303468,653,NULL,NULL,"{""en"": """", ""ja"": ""トランスペアレントイエロー""}",NULL,NULL,8,0,0,1
+91214051,45853241,31,W031.jpg,NULL,"{""en"": """", ""ja"": ""ジョーン ブリヤン No.1""}",NULL,NULL,38,0,0,A
+91229531,22748426,271,wc271.jpg,NULL,"{""en"": """", ""ja"": ""チャイニーズホワイト""}",NULL,NULL,87,0,0,A
+91524178,45853241,138,W138.jpg,NULL,"{""en"": """", ""ja"": ""アイボリ ブラック""}",NULL,NULL,98,0,0,A
+91691309,5782615,Perylene Green,NULL,NULL,NULL,NULL,NULL,105,0,0,
+91765307,5782615,Quinacridone Burnt Scarlet,NULL,NULL,NULL,NULL,NULL,140,0,0,
+92149315,45853241,101,W101.jpg,NULL,"{""en"": """", ""ja"": ""ピーコック ブルー""}",NULL,NULL,63,0,0,A
+92170864,22748426,015,wc015.jpg,NULL,"{""en"": """", ""ja"": ""ライラック""}",NULL,NULL,6,0,0,B
+92370853,5782615,Permanent Green,NULL,NULL,NULL,NULL,NULL,98,0,0,
+92449527,56303468,733,NULL,NULL,"{""en"": """", ""ja"": ""ウルトラマリンバイオレット""}",NULL,NULL,38,0,0,1
+92660271,45853241,137,W137.jpg,NULL,"{""en"": """", ""ja"": ""ピーチ ブラック""}",NULL,NULL,100,0,0,A
+93043139,45853241,10,W010.jpg,NULL,"{""en"": """", ""ja"": ""クリムソン レーキ""}",NULL,NULL,1,1,0,A
+93261490,5782615,Quinacridone Fuchsia,NULL,NULL,NULL,NULL,NULL,52,0,0,
+93317247,45853241,64,W064.jpg,NULL,"{""en"": """", ""ja"": ""エメラルド グリーン ノーバ""}",NULL,NULL,52,0,0,B
+93447365,5782615,Pompeii Red,NULL,NULL,NULL,NULL,NULL,136,0,0,
+93546479,5782615,Sepia,NULL,NULL,NULL,NULL,NULL,159,0,0,1
+93555355,5782615,Lunar Blue,NULL,NULL,NULL,NULL,NULL,89,0,0,
+93997982,45853241,95,W095.jpg,NULL,"{""en"": """", ""ja"": ""バヂター ブルー""}",NULL,NULL,67,0,0,A
+94532789,45853241,03,W003.jpg,NULL,"{""en"": """", ""ja"": ""チタニウム ホワイト""}",NULL,NULL,106,0,0,A
+94656011,56303468,901,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムフリーレッド""}",NULL,NULL,103,0,0,4
+95023426,5782615,Potters Pink,NULL,NULL,NULL,NULL,NULL,46,0,0,
+95148911,56303468,425,NULL,NULL,"{""en"": """", ""ja"": ""ネイプルスイエローディープ""}",NULL,NULL,67,0,0,1
+95217450,5782615,Sap Green,NULL,NULL,NULL,NULL,NULL,101,0,0,
+95578357,56303468,899,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムフリーオレンジ""}",NULL,NULL,101,0,0,4
+95596930,56303468,089,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムオレンジ""}",NULL,NULL,16,0,0,4
+95711097,22748426,066,wc066.jpg,NULL,"{""en"": """", ""ja"": ""カドミウムグリーン ライト［ネオ］""}",NULL,NULL,24,0,0,C
+95968124,5782615,Ultramarine Turquoise,NULL,NULL,NULL,NULL,NULL,87,0,0,
+95975547,45853241,61,W061.jpg,NULL,"{""en"": """", ""ja"": ""ビリジャン ヒュー""}",NULL,NULL,51,0,0,A
+96432313,5782615,Alvaro’s Fresco Grey,NULL,NULL,NULL,NULL,NULL,168,0,0,
+97022209,22748426,037,wc037.jpg,NULL,"{""en"": """", ""ja"": ""オーロラブルー""}",NULL,NULL,15,0,0,B
+97127800,22748426,071,wc071.jpg,NULL,"{""en"": """", ""ja"": ""パーマネントグリーン ディープ""}",NULL,NULL,26,0,0,A
+97556755,56303468,637,NULL,NULL,"{""en"": """", ""ja"": ""テールベルト""}",NULL,NULL,58,0,0,1
+97943007,22748426,062,wc062.jpg,NULL,"{""en"": """", ""ja"": ""ビリジャン［ネオ］""}",NULL,NULL,21,0,0,A
+98000400,45853241,69,W069.jpg,NULL,"{""en"": """", ""ja"": ""カドミウム グリーン ペール""}",NULL,NULL,46,0,0,C
+98319679,56303468,502,NULL,NULL,"{""en"": """", ""ja"": ""パーマネントローズ""}",NULL,NULL,30,0,0,3
+98769960,56303468,576,NULL,NULL,"{""en"": """", ""ja"": ""ローズドーレ""}",NULL,NULL,24,0,0,4
+98893573,5782615,Permanent Violet,NULL,NULL,NULL,NULL,NULL,55,0,0,2
+99386344,5782615,Cadmium Red Scarlet Hue,NULL,NULL,NULL,NULL,NULL,25,0,0,3
+99402167,5782615,Indanthrone Blue,NULL,NULL,NULL,NULL,NULL,72,0,0,
+99539700,56303468,192,NULL,NULL,"{""en"": """", ""ja"": ""コバルトバイオレット""}",NULL,NULL,35,0,0,4
+99573889,5782615,Terre Ercolano,NULL,NULL,NULL,NULL,NULL,137,0,0,
+99851460,45853241,131,W131.jpg,NULL,"{""en"": """", ""ja"": ""ロー アンバー""}",NULL,NULL,91,0,0,A
+99942406,56303468,086,NULL,NULL,"{""en"": """", ""ja"": ""カドミウムレモン""}",NULL,NULL,3,0,0,4
+99952102,22748426,122,wc122.jpg,NULL,"{""en"": """", ""ja"": ""パーマネントイエローオレンジ""}",NULL,NULL,43,0,0,A

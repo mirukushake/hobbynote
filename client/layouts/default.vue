@@ -22,6 +22,10 @@
             <video-camera-outlined />
             <span>Colored pencils</span>
           </a-menu-item>
+          <a-menu-item key="watercolor">
+            <video-camera-outlined />
+            <span>Watercolors</span>
+          </a-menu-item>
           <a-menu-item key="floss">
             <upload-outlined />
             <span>Embroidery floss</span>

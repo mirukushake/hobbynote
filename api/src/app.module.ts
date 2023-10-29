@@ -10,6 +10,7 @@ import { EmbroideryDesignModule } from './embroidery-design/embroidery-design.mo
 import { MediaModule } from './media/media.module';
 import { StorageModule } from './storage/storage.module';
 import { WatercolorModule } from './watercolor/watercolor.module';
+import { PigmentsModule } from './pigments/pigments.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { WatercolorModule } from './watercolor/watercolor.module';
     MediaModule,
     StorageModule,
     WatercolorModule,
+    PigmentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

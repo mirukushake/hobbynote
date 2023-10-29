@@ -1,4 +1,5 @@
 import { defineStore, skipHydrate } from "pinia"
+import { Pigment } from "@/models/models"
 
 export const useFlossStore = defineStore("floss", () => {
   const floss = ref<any>([])
@@ -19,4 +20,17 @@ export const useFlossStore = defineStore("floss", () => {
   }
 
   return { floss, flossList, getFloss }
+})
+
+export const usePigmentStore = defineStore("pigments", () => {
+  const pigments = ref<Pigment[]>([])
+
+  async function getPigments() {
+    const { data } = await useFetch<Pigment[]>("api/pigments")
+    if (data.value) {
+      pigments.value = data.value
+    }
+  }
+
+  return { pigments, getPigments }
 })

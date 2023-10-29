@@ -1,7 +1,15 @@
 <template>
   <div class="bg-white rounded-lg p-6" v-if="data">
+    <div>
+      <a-checkbox-group
+        v-model:value="brandSelect"
+        name="checkboxgroup"
+        :options="brands"
+      />
+      <a-input v-model:value="search" placeholder="search" />
+    </div>
     <a-list
-      :grid="{ gutter: 1, column: 4 }"
+      :grid="{ gutter: 1, column: 3 }"
       :data-source="filteredWatercolor"
       :pagination="pagination"
     >
@@ -10,11 +18,29 @@
           ><a-card class="rounded-lg"
             ><div class="flex flex-row content-start">
               <div class="w-2/12 rounded-s-lg mr-2 border-r border-gray-100">
-                &nbsp;
+                <img
+                  alt="swatch"
+                  :src="`https://storage.googleapis.com/hobbynote/${item.swatch}`"
+                  class="object-fill h-full w-fit rounded-l-lg"
+                />
               </div>
               <div class="w-10/12 flex flex-row p-1">
-                <div class="flex items-center w-9/12">
+                <div class="flex flex-col w-9/12">
                   {{ item.brand?.brand_name?.en }} {{ item.code }}
+                  <div class="text-xs">
+                    {{
+                      item.paint_name?.en
+                        ? item.paint_name?.en
+                        : item.paint_name?.ja
+                    }}
+                  </div>
+                  <div>
+                    <span
+                      v-for="pigment in item.pigments"
+                      class="mr-2 last:mr-0"
+                      >{{ pigment.code }}
+                    </span>
+                  </div>
                 </div>
                 <div class="flex items-center justify-end">
                   <a-button
@@ -35,7 +61,10 @@
                     @click="updateWishlist(item.item_id, item.wish_qty)"
                     ><Icon name="tabler:heart"
                   /></a-button>
-                  <a-button type="link" class="p-0 mb-1"
+                  <a-button
+                    type="link"
+                    class="p-0 mb-1"
+                    @click="selectWatercolor(item.item_id)"
                     ><Icon name="tabler:info-circle"
                   /></a-button>
                 </div>
@@ -45,14 +74,28 @@
         </a-list-item>
       </template>
     </a-list>
+    <a-modal
+      v-model:open="dialog"
+      title="Watercolor info"
+      @ok="handleOk"
+      @cancel="handleOk"
+      width="50%"
+      :destroy-on-close="true"
+    >
+      <WatercolorInfo v-if="selectedID" :item_id="selectedID" />
+    </a-modal>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, nextTick } from "vue"
+import { computed, ref, reactive } from "vue"
 import { Watercolor, Brand, Name, Pigment } from "@/models/models"
+import { usePigmentStore } from "~/store/store"
 
-const { data } = await useFetch<Watercolor[]>("/api/watercolor")
+const { data, refresh } = await useFetch<Watercolor[]>("/api/watercolor")
+const { pigments, getPigments } = usePigmentStore()
+
+await getPigments()
 
 definePageMeta({
   title: "Watercolor",
@@ -64,9 +107,12 @@ const brandSelect = ref<number[]>([])
 const owned = ref("")
 const wishlist = ref(false)
 const pagination = {
-  defaultPageSize: 100,
+  defaultPageSize: 99,
   showSizeChanger: false,
 }
+
+const dialog = ref(false)
+const selectedID = ref<number | null>(null)
 
 const filteredWatercolor: ComputedRef<Watercolor[]> = computed(() => {
   return data
@@ -74,7 +120,14 @@ const filteredWatercolor: ComputedRef<Watercolor[]> = computed(() => {
       (brand: any) =>
         !brandSelect.value.length || brandSelect.value.includes(brand.brand.id)
     )
-    .filter((text: any) => text.code.includes(search.value))
+    .filter(
+      (text: any) =>
+        text.paint_name &&
+        (text.paint_name?.ja.includes(search.value) ||
+          text.paint_name?.en
+            .toLowerCase()
+            .includes(search.value.toLowerCase()))
+    )
     .filter(
       (inv: any) =>
         owned.value === "" ||
@@ -84,9 +137,9 @@ const filteredWatercolor: ComputedRef<Watercolor[]> = computed(() => {
 
 const brands = computed(() => {
   const map = new Map(
-    data.value!.map((brand: any) => [brand.brand.id, brand.brand])
+    data.value!.map((brand: any) => [brand.brand.id, brand.brand.brand_name.en])
   )
-  return [...map.values()]
+  return [...map].map(([key, value]) => ({ label: value, value: key }))
 })
 
 async function updateInventory(item_id: number, inv_qty: number) {
@@ -115,5 +168,15 @@ async function updateWishlist(item_id: number, wish_qty: number) {
     p.item_id === item_id ? wishdata.value : p
   )
   data.value = newArray
+}
+
+async function handleOk() {
+  await refresh()
+  dialog.value = false
+}
+
+async function selectWatercolor(item_id: number) {
+  selectedID.value = item_id
+  dialog.value = true
 }
 </script>
