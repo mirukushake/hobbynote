@@ -16,7 +16,12 @@ export class PigmentsService {
   async findAll() {
     const pigments = await this.prisma.pigment.findMany({
       include: {
-        watercolors: true,
+        watercolors: {
+          include: {
+            brand: true,
+            pigments: true,
+          },
+        },
       },
       orderBy: [
         {

@@ -1,6 +1,6 @@
 import { Exclude, Expose } from 'class-transformer';
 import { Brand } from 'src/common/entities/brand.entity';
-import { Color } from 'src/common/entities/color.entity';
+import { ColorEntity } from 'src/colors/entities/color.entity';
 import { Floss } from '@prisma/client';
 import { RGB } from 'src/common/entities/rgb.entity';
 
@@ -10,7 +10,7 @@ export class FlossEntity implements Floss {
   floss_name: { en: string; ja: string };
   brand: Brand;
   order: number;
-  color: Color;
+  color: ColorEntity;
 
   rgb: any;
   inv_qty: number;

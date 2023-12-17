@@ -5,6 +5,7 @@
         v-model:collapsed="collapsed"
         :trigger="null"
         style="background-color: transparent"
+        class="max-md:-mr-40"
       >
         <div class="logo" />
         <a-menu
@@ -12,27 +13,33 @@
           mode="inline"
           @click="clickMenuItem"
           theme="dark"
-          class="h-screen fixed top-0 left-0 w-56 bg-sky-900"
+          class="h-screen fixed top-0 left-0 w-20 md:w-56 bg-sky-900"
         >
           <a-menu-item key="test">
-            <user-outlined />
+            <Icon name="tabler:test-pipe" size="17" class="mr-1" />
             <span>Test page</span>
           </a-menu-item>
+          <a-divider />
           <a-menu-item key="pencils">
-            <video-camera-outlined />
-            <span>Colored pencils</span>
+            <Icon class="visible md:hidden" name="tabler:pencil" />
+            <span class="">Colored pencils</span>
           </a-menu-item>
           <a-menu-item key="watercolor">
-            <video-camera-outlined />
-            <span>Watercolors</span>
+            <Icon class="visible md:hidden" name="tabler:droplet" />
+            <span class="">Watercolors</span>
           </a-menu-item>
+          <a-menu-item key="pigments">
+            <Icon class="visible md:hidden" name="tabler:color-filter" />
+            <span class="">Pigments</span>
+          </a-menu-item>
+          <a-divider />
           <a-menu-item key="floss">
-            <upload-outlined />
-            <span>Embroidery floss</span>
+            <Icon class="visible md:hidden" name="tabler:needle-thread" />
+            <span class="">Embroidery floss</span>
           </a-menu-item>
           <a-menu-item key="designs">
-            <upload-outlined />
-            <span>Embroidery designs</span>
+            <Icon class="visible md:hidden" name="tabler:notebook" />
+            <span class="">Embroidery designs</span>
           </a-menu-item>
         </a-menu>
       </a-layout-sider>

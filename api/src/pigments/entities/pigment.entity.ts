@@ -6,5 +6,6 @@ export class PigmentEntity implements Pigment {
   code: string;
   name: string;
   order: number;
+  color_id: number;
   watercolors: Watercolor[];
 }

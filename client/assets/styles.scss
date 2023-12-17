@@ -29,6 +29,14 @@ body {
   height: 8rem;
 }
 
+.ant-menu.ant-menu-dark {
+  background: #3f516e !important;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background: #7ba0a6;
+}
+
 /* -- mobile layout -- */
 
 .mobile-layout {

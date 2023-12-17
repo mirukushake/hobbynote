@@ -11,6 +11,7 @@ import { MediaModule } from './media/media.module';
 import { StorageModule } from './storage/storage.module';
 import { WatercolorModule } from './watercolor/watercolor.module';
 import { PigmentsModule } from './pigments/pigments.module';
+import { ColorsModule } from './colors/colors.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { PigmentsModule } from './pigments/pigments.module';
     StorageModule,
     WatercolorModule,
     PigmentsModule,
+    ColorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

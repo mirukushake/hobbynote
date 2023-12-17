@@ -1,24 +1,46 @@
 <template>
   <div class="bg-white rounded-lg p-6" v-if="data">
-    <div>
+    <div class="mb-8">
       <a-checkbox-group
         v-model:value="brandSelect"
         name="checkboxgroup"
         :options="brands"
       />
       <a-input v-model:value="search" placeholder="search" />
+      <a-radio-group v-model:value="owned">
+        <a-radio-button value="owned">Owned</a-radio-button>
+        <a-radio-button value="unowned">Unowned</a-radio-button>
+        <a-radio-button value="">All</a-radio-button>
+      </a-radio-group>
+      <a-checkbox v-model:checked="wishlist">Wishlist</a-checkbox>
+      <br />
+      <a-select
+        v-model:value="pigmentSelect"
+        mode="multiple"
+        style="width: 50%"
+        placeholder="Pigments"
+        :options="pigments"
+        :field-names="{ label: 'code', value: 'id' }"
+        :filter-option="filterOption"
+        id="watercolor"
+      ></a-select>
     </div>
     <a-list
-      :grid="{ gutter: 1, column: 3 }"
+      :grid="{ gutter: 1, xs: 1, sm: 2, md: 3, lg: 3, xl: 3, xxl: 4 }"
       :data-source="filteredWatercolor"
       :pagination="pagination"
     >
       <template #renderItem="{ item }">
         <a-list-item
-          ><a-card class="rounded-lg"
+          ><a-card
+            class="rounded-lg"
+            :class="{
+              'bg-green-50': item.inv_qty !== 0,
+            }"
             ><div class="flex flex-row content-start">
               <div class="w-2/12 rounded-s-lg mr-2 border-r border-gray-100">
                 <img
+                  v-if="item.swatch"
                   alt="swatch"
                   :src="`https://storage.googleapis.com/hobbynote/${item.swatch}`"
                   class="object-fill h-full w-fit rounded-l-lg"
@@ -26,7 +48,7 @@
               </div>
               <div class="w-10/12 flex flex-row p-1">
                 <div class="flex flex-col w-9/12">
-                  {{ item.brand?.brand_name?.en }} {{ item.code }}
+                  {{ item.brand?.brand_name?.en }}
                   <div class="text-xs">
                     {{
                       item.paint_name?.en
@@ -74,6 +96,26 @@
         </a-list-item>
       </template>
     </a-list>
+    <!-- <DynamicScroller
+      :items="filteredWatercolor"
+      :item-size="54"
+      :grid-items="4"
+      :item-secondary-size="200"
+      key-field="item_id"
+    >
+      <template v-slot="{ item, index, active }">
+        <DynamicScrollerItem
+          :item="item"
+          :active="active"
+          :size-dependencies="[item.pigments]"
+          :data-index="index"
+        >
+          <div class="border border-gray-600 col-span-2">
+            {{ item.brand?.brand_name?.en }}
+          </div>
+        </DynamicScrollerItem>
+      </template>
+    </DynamicScroller> -->
     <a-modal
       v-model:open="dialog"
       title="Watercolor info"
@@ -88,8 +130,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, reactive } from "vue"
-import { Watercolor, Brand, Name, Pigment } from "@/models/models"
+import { computed, ref } from "vue"
+import { Watercolor } from "@/models/models"
 import { usePigmentStore } from "~/store/store"
 
 const { data, refresh } = await useFetch<Watercolor[]>("/api/watercolor")
@@ -104,6 +146,7 @@ definePageMeta({
 
 const search = ref("")
 const brandSelect = ref<number[]>([])
+const pigmentSelect = ref([])
 const owned = ref("")
 const wishlist = ref(false)
 const pagination = {
@@ -121,17 +164,34 @@ const filteredWatercolor: ComputedRef<Watercolor[]> = computed(() => {
         !brandSelect.value.length || brandSelect.value.includes(brand.brand.id)
     )
     .filter(
+      (pigment: any) =>
+        !pigmentSelect.value.length ||
+        pigment.pigments.some((item: any) =>
+          pigmentSelect.value.includes(item.id)
+        )
+    )
+    .filter(
       (text: any) =>
         text.paint_name &&
-        (text.paint_name?.ja.includes(search.value) ||
-          text.paint_name?.en
-            .toLowerCase()
-            .includes(search.value.toLowerCase()))
+        (text.paint_name?.en
+          .toLowerCase()
+          .includes(search.value.toLowerCase()) ||
+          text.paint_name?.ja.includes(search.value))
     )
     .filter(
       (inv: any) =>
         owned.value === "" ||
-        (owned.value === "true" ? inv.inv_qty > 0 : inv.inv_qty === 0)
+        (owned.value === "owned" ? inv.inv_qty > 0 : inv.inv_qty === 0)
+    )
+    .filter(
+      (inv: any) =>
+        owned.value === "" ||
+        (owned.value === "unowned" ? inv.inv_qty === 0 : inv.inv_qty > 0)
+    )
+    .filter(
+      (inv: any) =>
+        wishlist.value === false ||
+        (wishlist.value === true ? inv.wish_qty > 0 : inv.wish_qty === 0)
     )
 })
 
@@ -179,4 +239,10 @@ async function selectWatercolor(item_id: number) {
   selectedID.value = item_id
   dialog.value = true
 }
+
+const filterOption = (input: string, option: any) => {
+  return option.code.toLowerCase().indexOf(input.toLowerCase()) >= 0
+}
+const watercolor = ref(null)
+const { width } = useElementBounding(watercolor)
 </script>

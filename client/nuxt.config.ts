@@ -2,18 +2,23 @@
 
 export default defineNuxtConfig({
   css: ["assets/styles.scss"],
+
   build: {
     transpile: [],
   },
-  plugins: ["@/plugins/antd"],
+
+  plugins: ["@/plugins/antd", "@/plugins/virtual-scroller"],
   ssr: false,
+
   modules: [
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
     "@vant/nuxt",
     "@nuxtjs/device",
     "nuxt-icon",
+    "@vueuse/nuxt",
   ],
+
   nitro: {
     devProxy: {
       "/api": {
@@ -22,10 +27,17 @@ export default defineNuxtConfig({
       },
     },
   },
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
+    },
+  },
+
+  devtools: {
+    timeline: {
+      enabled: true,
     },
   },
 })

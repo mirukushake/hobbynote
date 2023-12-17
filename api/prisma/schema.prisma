@@ -98,6 +98,7 @@ model Pigment {
   code        String       @unique(map: "pigments_code_idx")
   name        String?       
   order       Int?         @unique(map: "pigments_order_idx")
+  color_id    Int?
   watercolors Watercolor[] @relation("PigmentToWatercolor")
 
   @@map("pigments")

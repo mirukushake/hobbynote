@@ -1,6 +1,6 @@
 import { Exclude, Expose } from 'class-transformer';
 import { Brand } from 'src/common/entities/brand.entity';
-import { Color } from 'src/common/entities/color.entity';
+import { ColorEntity } from 'src/colors/entities/color.entity';
 import { Pencil } from '@prisma/client';
 
 export class PencilEntity implements Pencil {
@@ -9,7 +9,7 @@ export class PencilEntity implements Pencil {
   pencil_name: { en: string; ja: string };
   brand: Brand;
   order: number;
-  color: Color;
+  color: ColorEntity;
   rgb: any;
   inv_qty: number;
   wish_qty: number;

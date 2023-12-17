@@ -1,6 +1,6 @@
 import { Exclude, Expose } from 'class-transformer';
 import { Brand } from 'src/common/entities/brand.entity';
-import { Color } from 'src/common/entities/color.entity';
+import { ColorEntity } from 'src/colors/entities/color.entity';
 import { Prisma, Watercolor, Pigment } from '@prisma/client';
 
 export class WatercolorEntity implements Watercolor {
@@ -10,7 +10,7 @@ export class WatercolorEntity implements Watercolor {
   paint_name: { en: string; ja: string };
   brand: Brand;
   color_id: number;
-  color: Color;
+  color: ColorEntity;
   sizes: number[];
   order: number;
   grade: string;
